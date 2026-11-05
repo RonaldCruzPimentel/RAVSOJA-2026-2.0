@@ -1,0 +1,366 @@
+@import "@fontsource-variable/geist";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Philosopher";
+  src: url("./fonts/Philosopher-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Philosopher";
+  src: url("./fonts/Philosopher-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TT Fors";
+  src: url("./fonts/TT Fors Trial Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Fors";
+  src: url("./fonts/TT Fors Trial Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Fors";
+  src: url("./fonts/TT Fors Trial Medium Italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "Cylburn";
+  src: url("./fonts/Cylburn.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 115px;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+main,
+section,
+article,
+header,
+footer,
+nav,
+div {
+  min-width: 0;
+}
+
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button {
+  overflow-wrap: break-word;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background: #ffffff;
+  color: #0d1b29;
+  font-family: "Geist Variable", sans-serif;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100000;
+  top: 12px;
+  left: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: #ffffff;
+  background: #0d1b29;
+  font-family: "TT Fors", sans-serif;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 180ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.section-fallback {
+  width: 100%;
+  background: #ffffff;
+}
+
+@media (max-width: 359px) {
+  .ravsoja-navbar__inner {
+    gap: 0.5rem;
+    padding-inline: 0.75rem;
+  }
+
+  .ravsoja-navbar__home {
+    gap: 0.5rem;
+  }
+
+  .ravsoja-navbar__logo {
+    width: 54px;
+    height: 54px;
+  }
+
+  .ravsoja-navbar__kicker {
+    font-size: 9px;
+  }
+
+  .ravsoja-navbar__name {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1279px) and (orientation: landscape) and (max-height: 560px) {
+  .ravsoja-navbar__inner {
+    padding-block: 0.2rem;
+  }
+
+  .ravsoja-navbar__logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ravsoja-navbar__kicker {
+    margin-bottom: 0.15rem;
+    font-size: 9px;
+  }
+
+  .ravsoja-navbar__name {
+    font-size: 1.45rem;
+  }
+}
+
+
+
+@layer base {
+  .theme {
+    --font-heading:var(--font-sans);
+    --font-sans:'Geist Variable', sans-serif;
+  }
+  :root {
+    --background:oklch(1 0 0);
+    --foreground:oklch(0.145 0 0);
+    --card:oklch(1 0 0);
+    --card-foreground:oklch(0.145 0 0);
+    --popover:oklch(1 0 0);
+    --popover-foreground:oklch(0.145 0 0);
+    --primary:oklch(0.205 0 0);
+    --primary-foreground:oklch(0.985 0 0);
+    --secondary:oklch(0.97 0 0);
+    --secondary-foreground:oklch(0.205 0 0);
+    --muted:oklch(0.97 0 0);
+    --muted-foreground:oklch(0.556 0 0);
+    --accent:oklch(0.97 0 0);
+    --accent-foreground:oklch(0.205 0 0);
+    --destructive:oklch(0.577 0.245 27.325);
+    --border:oklch(0.922 0 0);
+    --input:oklch(0.922 0 0);
+    --ring:oklch(0.708 0 0);
+    --chart-1:oklch(0.87 0 0);
+    --chart-2:oklch(0.556 0 0);
+    --chart-3:oklch(0.439 0 0);
+    --chart-4:oklch(0.371 0 0);
+    --chart-5:oklch(0.269 0 0);
+    --radius:0.625rem;
+    --sidebar:oklch(0.985 0 0);
+    --sidebar-foreground:oklch(0.145 0 0);
+    --sidebar-primary:oklch(0.205 0 0);
+    --sidebar-primary-foreground:oklch(0.985 0 0);
+    --sidebar-accent:oklch(0.97 0 0);
+    --sidebar-accent-foreground:oklch(0.205 0 0);
+    --sidebar-border:oklch(0.922 0 0);
+    --sidebar-ring:oklch(0.708 0 0);
+  }
+  .dark {
+    --background:oklch(0.145 0 0);
+    --foreground:oklch(0.985 0 0);
+    --card:oklch(0.205 0 0);
+    --card-foreground:oklch(0.985 0 0);
+    --popover:oklch(0.205 0 0);
+    --popover-foreground:oklch(0.985 0 0);
+    --primary:oklch(0.922 0 0);
+    --primary-foreground:oklch(0.205 0 0);
+    --secondary:oklch(0.269 0 0);
+    --secondary-foreground:oklch(0.985 0 0);
+    --muted:oklch(0.269 0 0);
+    --muted-foreground:oklch(0.708 0 0);
+    --accent:oklch(0.269 0 0);
+    --accent-foreground:oklch(0.985 0 0);
+    --destructive:oklch(0.704 0.191 22.216);
+    --border:oklch(1 0 0 / 10%);
+    --input:oklch(1 0 0 / 15%);
+    --ring:oklch(0.556 0 0);
+    --chart-1:oklch(0.87 0 0);
+    --chart-2:oklch(0.556 0 0);
+    --chart-3:oklch(0.439 0 0);
+    --chart-4:oklch(0.371 0 0);
+    --chart-5:oklch(0.269 0 0);
+    --sidebar:oklch(0.205 0 0);
+    --sidebar-foreground:oklch(0.985 0 0);
+    --sidebar-primary:oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground:oklch(0.985 0 0);
+    --sidebar-accent:oklch(0.269 0 0);
+    --sidebar-accent-foreground:oklch(0.985 0 0);
+    --sidebar-border:oklch(1 0 0 / 10%);
+    --sidebar-ring:oklch(0.556 0 0);
+  }
+  *{
+  border-color:hsl(var(--border));
+}
+
+  body{
+  background:hsl(var(--background));
+  color:hsl(var(--foreground));
+}
+
+
+  html{
+  font-family:'Geist Variable', sans-serif;
+}
+}
+
+
+
+/* NOISE ANIMATION */
+@keyframes grain {
+  0%, 100% { transform: translate(0,0); }
+  10% { transform: translate(-5%,-10%); }
+  20% { transform: translate(-15%,5%); }
+  30% { transform: translate(7%,-25%); }
+  40% { transform: translate(-5%,25%); }
+  50% { transform: translate(-15%,10%); }
+  60% { transform: translate(15%,0%); }
+  70% { transform: translate(0%,15%); }
+  80% { transform: translate(3%,35%); }
+  90% { transform: translate(-10%,10%); }
+}
+
+.noise {
+  animation: grain 8s steps(10) infinite;
+}
+
+
+html,
+body {
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+@keyframes fadePhone {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+
+/* =====================================================
+   NAVEGACIÓN INTERNA Y HEADER FIJO
+===================================================== */
+
+section[id],
+main[id],
+footer[id],
+div[id] {
+  scroll-margin-top: 115px;
+}
+
+/* Evita cambios bruscos al abrir enlaces internos */
+:target {
+  scroll-margin-top: 115px;
+}
+
+/* Mejora la interacción de enlaces y botones */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid #2457a7;
+  outline-offset: 3px;
+}
+
+/* Mantiene los controles con la tipografía heredada */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Evita que un botón herede bordes de estilos externos */
+button {
+  cursor: pointer;
+}
+
+/* Accesibilidad para usuarios que desactivan animaciones */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

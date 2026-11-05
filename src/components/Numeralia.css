@@ -1,0 +1,676 @@
+/* =====================================================
+   NUMERALIA RAVSOJA
+   ===================================================== */
+
+.numeralia {
+  --numeralia-navy: #212a51;
+  --numeralia-navy-dark: #151b38;
+  --numeralia-blue: #1d748d;
+  --numeralia-blue-light: #6aafbf;
+  --numeralia-cream: #f0e9d9;
+  --numeralia-beige: #c9bca4;
+  --numeralia-brown: #b49b7c;
+  --numeralia-white: #f7f6f4;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(5.5rem, 10vw, 9rem) 1.5rem;
+  color: var(--numeralia-navy);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247, 246, 244, 0.98),
+      rgba(240, 233, 217, 0.93)
+    );
+}
+
+.numeralia::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.35rem;
+  background: linear-gradient(
+    90deg,
+    var(--numeralia-navy),
+    var(--numeralia-blue),
+    var(--numeralia-beige),
+    var(--numeralia-navy)
+  );
+}
+
+/* =====================================================
+   ELEMENTOS DE FONDO
+   ===================================================== */
+
+.numeralia__background-shape {
+  position: absolute;
+  z-index: -3;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.numeralia__background-shape--one {
+  top: -14rem;
+  right: -9rem;
+  width: 35rem;
+  height: 35rem;
+  border: 1px solid rgba(29, 116, 141, 0.16);
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(29, 116, 141, 0.2),
+      transparent 66%
+    );
+}
+
+.numeralia__background-shape--two {
+  bottom: -18rem;
+  left: -13rem;
+  width: 42rem;
+  height: 42rem;
+  border: 1px solid rgba(33, 42, 81, 0.12);
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(180, 155, 124, 0.18),
+      transparent 68%
+    );
+}
+
+.numeralia__pattern {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  opacity: 0.32;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(33, 42, 81, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 42, 81, 0.035) 1px, transparent 1px);
+  background-size: 62px 62px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 80%,
+    transparent
+  );
+}
+
+.numeralia__container {
+  position: relative;
+  width: min(100%, 1320px);
+  margin-inline: auto;
+}
+
+/* =====================================================
+   ENCABEZADO
+   ===================================================== */
+
+.numeralia__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  align-items: end;
+  gap: clamp(2rem, 6vw, 7rem);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.numeralia__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  color: var(--numeralia-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.numeralia__eyebrow-line {
+  display: inline-block;
+  width: 2.4rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.numeralia__title {
+  margin: 0;
+  color: var(--numeralia-navy);
+  font-size: clamp(3rem, 6.5vw, 6.7rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.numeralia__title-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.numeralia__title-line {
+  display: block;
+  will-change: transform;
+}
+
+.numeralia__title-line--accent {
+  color: var(--numeralia-blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.numeralia__description {
+  position: relative;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(33, 42, 81, 0.2);
+}
+
+.numeralia__description-number {
+  position: absolute;
+  top: -0.85rem;
+  right: 0;
+  padding-left: 0.65rem;
+  color: var(--numeralia-brown);
+  background: var(--numeralia-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.numeralia__description p {
+  max-width: 32rem;
+  margin: 0;
+  color: rgba(33, 42, 81, 0.72);
+  font-size: clamp(0.96rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+}
+
+/* =====================================================
+   CUADRÍCULA
+   ===================================================== */
+
+.numeralia__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "alumnos alumnos diplomados diplomados"
+    "alumnos alumnos generaciones experiencia"
+    "institutos institutos convenios convenios";
+  grid-auto-rows: minmax(190px, auto);
+  gap: 1rem;
+}
+
+/* =====================================================
+   TARJETAS
+   ===================================================== */
+
+.numeralia__card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-width: 0;
+  min-height: 190px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.4rem, 2.4vw, 2.2rem);
+  border: 1px solid rgba(33, 42, 81, 0.11);
+  border-radius: 1.6rem;
+  background: rgba(247, 246, 244, 0.84);
+  box-shadow:
+    0 24px 55px rgba(33, 42, 81, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  transform-origin: center bottom;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.numeralia__card:hover {
+  z-index: 5;
+  border-color: rgba(29, 116, 141, 0.3);
+  box-shadow:
+    0 34px 75px rgba(33, 42, 81, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transform: translateY(-8px);
+}
+
+.numeralia__card--alumnos {
+  min-height: 396px;
+}
+
+.numeralia__card--dark {
+  color: var(--numeralia-white);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: var(--numeralia-navy-dark);
+}
+
+.numeralia__card--blue {
+  color: var(--numeralia-white);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: var(--numeralia-blue);
+}
+
+.numeralia__card--cream {
+  background: linear-gradient(
+    145deg,
+    rgba(240, 233, 217, 0.98),
+    rgba(201, 188, 164, 0.78)
+  );
+}
+
+.numeralia__card--video {
+  color: var(--numeralia-white);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: var(--numeralia-navy);
+}
+
+.numeralia__card--outline {
+  border: 1px solid rgba(33, 42, 81, 0.25);
+  background: rgba(247, 246, 244, 0.52);
+}
+
+/* =====================================================
+   VIDEO DE LAS TARJETAS
+   ===================================================== */
+
+.numeralia__card-media {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  overflow: hidden;
+}
+
+.numeralia__card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.75) contrast(1.08);
+  transform: scale(1.08);
+}
+
+.numeralia__card-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(21, 27, 56, 0.96) 0%,
+      rgba(21, 27, 56, 0.77) 44%,
+      rgba(21, 27, 56, 0.32) 100%
+    ),
+    linear-gradient(to top, rgba(21, 27, 56, 0.65), transparent 65%);
+}
+
+.numeralia__card--diplomados .numeralia__card-video-overlay {
+  background:
+    linear-gradient(
+      110deg,
+      rgba(18, 83, 103, 0.97) 0%,
+      rgba(29, 116, 141, 0.82) 52%,
+      rgba(29, 116, 141, 0.35) 100%
+    );
+}
+
+.numeralia__card--institutos .numeralia__card-video-overlay {
+  background:
+    linear-gradient(
+      95deg,
+      rgba(21, 27, 56, 0.95) 0%,
+      rgba(33, 42, 81, 0.78) 48%,
+      rgba(33, 42, 81, 0.42) 100%
+    );
+}
+
+/* =====================================================
+   CONTENIDO DE TARJETAS
+   ===================================================== */
+
+.numeralia__card-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.numeralia__card-index {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  opacity: 0.68;
+}
+
+.numeralia__card-line {
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.2;
+  transform-origin: left center;
+  transition: transform 0.45s ease;
+}
+
+.numeralia__card:hover .numeralia__card-line {
+  transform: scaleX(0.72);
+}
+
+.numeralia__card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.numeralia__number {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.45rem;
+  font-size: clamp(3rem, 5.8vw, 6.4rem);
+  font-weight: 600;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  font-variant-numeric: tabular-nums;
+}
+
+.numeralia__card--generaciones .numeralia__number,
+.numeralia__card--experiencia .numeralia__number {
+  font-size: clamp(3.5rem, 5vw, 5.3rem);
+}
+
+.numeralia__number-suffix {
+  margin-top: 0.02em;
+  margin-left: 0.06em;
+  color: var(--numeralia-beige);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.48em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.numeralia__card--blue .numeralia__number-suffix {
+  color: var(--numeralia-cream);
+}
+
+.numeralia__card-title {
+  max-width: 25rem;
+  margin: 0;
+  font-size: clamp(1rem, 1.65vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.numeralia__card-description {
+  max-width: 32rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.58;
+  opacity: 0.72;
+}
+
+.numeralia__card--alumnos .numeralia__card-description {
+  max-width: 28rem;
+}
+
+.numeralia__card-decoration {
+  position: absolute;
+  z-index: 1;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  opacity: 0.3;
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.numeralia__card-decoration span {
+  position: absolute;
+  background: currentColor;
+}
+
+.numeralia__card-decoration span:first-child {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.numeralia__card-decoration span:last-child {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+}
+
+.numeralia__card:hover .numeralia__card-decoration {
+  opacity: 0.75;
+  transform: rotate(90deg);
+}
+
+/* =====================================================
+   PIE DE SECCIÓN
+   ===================================================== */
+
+.numeralia__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(33, 42, 81, 0.14);
+}
+
+.numeralia__footer p {
+  margin: 0;
+  color: rgba(33, 42, 81, 0.62);
+  font-size: 0.82rem;
+}
+
+.numeralia__footer-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--numeralia-navy);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.numeralia__footer-mark span {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--numeralia-blue);
+  box-shadow: 0 0 0 0.35rem rgba(29, 116, 141, 0.12);
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 960px) {
+  .numeralia__header {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 2.5rem;
+  }
+
+  .numeralia__description {
+    max-width: 37rem;
+  }
+
+  .numeralia__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "alumnos alumnos"
+      "alumnos alumnos"
+      "diplomados diplomados"
+      "generaciones experiencia"
+      "institutos convenios";
+  }
+
+  .numeralia__card--alumnos {
+    min-height: 370px;
+  }
+
+  .numeralia__number {
+    font-size: clamp(3.8rem, 10vw, 6rem);
+  }
+}
+
+/* =====================================================
+   MÓVIL
+   ===================================================== */
+
+@media (max-width: 640px) {
+  .numeralia {
+    padding: 5rem 1rem;
+  }
+
+  .numeralia__header {
+    margin-bottom: 2.8rem;
+  }
+
+  .numeralia__title {
+    font-size: clamp(2.75rem, 13vw, 4.3rem);
+    line-height: 0.94;
+  }
+
+  .numeralia__description {
+    padding-top: 1.5rem;
+  }
+
+  .numeralia__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .numeralia__card {
+    min-height: 205px;
+    padding: 1.5rem;
+    border-radius: 1.3rem;
+  }
+
+  .numeralia__card--alumnos {
+    min-height: 355px;
+  }
+
+  .numeralia__card--diplomados,
+  .numeralia__card--institutos,
+  .numeralia__card--convenios {
+    min-height: 255px;
+  }
+
+  .numeralia__number {
+    font-size: clamp(4rem, 18vw, 5.5rem);
+  }
+
+  .numeralia__card--generaciones .numeralia__number,
+  .numeralia__card--experiencia .numeralia__number {
+    font-size: 4.7rem;
+  }
+
+  .numeralia__card-title {
+    font-size: 1.1rem;
+  }
+
+  .numeralia__card-description {
+    max-width: 90%;
+    font-size: 0.81rem;
+  }
+
+  .numeralia__footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .numeralia__footer-mark {
+    font-size: 0.6rem;
+  }
+
+  .numeralia__background-shape--one {
+    width: 24rem;
+    height: 24rem;
+  }
+
+  .numeralia__background-shape--two {
+    width: 27rem;
+    height: 27rem;
+  }
+}
+
+/* =====================================================
+   ACCESIBILIDAD
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .numeralia *,
+  .numeralia *::before,
+  .numeralia *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .numeralia__card-video {
+    transform: scale(1);
+  }
+}
+
+/* =====================================================
+   CORRECCIÓN DEL ESLOGAN INFERIOR
+   ===================================================== */
+
+.numeralia__grid {
+  margin-bottom: clamp(4rem, 6vw, 6rem);
+}
+
+.numeralia__footer {
+  position: relative;
+  z-index: 10;
+  margin-top: 0;
+  padding-top: 1.7rem;
+}
+
+.numeralia__footer-mark {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* Evita que el final de la sección quede ajustado */
+.numeralia {
+  padding-bottom: clamp(6rem, 10vw, 9rem);
+}
+
+@media (max-width: 640px) {
+  .numeralia__grid {
+    margin-bottom: 3rem;
+  }
+
+  .numeralia__footer {
+    padding-top: 1.4rem;
+  }
+
+  .numeralia {
+    padding-bottom: 5rem;
+  }
+}

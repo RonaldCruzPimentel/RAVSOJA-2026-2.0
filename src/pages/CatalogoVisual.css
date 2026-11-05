@@ -1,0 +1,234 @@
+/* Visual layer only. Academic data, filters and modal behavior stay in their modules. */
+@property --rv-catalog-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #212a51;
+}
+@property --rv-catalog-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #778db6;
+}
+
+.rv-offer-catalog {
+  --rv-catalog-accent: #212a51;
+  --rv-catalog-secondary: #778db6;
+  --catalog-paper: #f7f7f9;
+  --catalog-surface: #fff;
+  --catalog-line: #212a511c;
+  --catalog-lift: #fff;
+  --catalog-accent-ink: var(--rv-catalog-accent);
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-top: clamp(136px, 11vw, 164px);
+  background: var(--catalog-paper);
+  transition: --rv-catalog-accent 850ms ease, --rv-catalog-secondary 850ms ease;
+}
+.rv-offer-catalog :is(.rv-offer-group,.rv-offer-program-card) {
+  --rv-catalog-accent: #212a51;
+  --rv-catalog-secondary: #778db6;
+  --catalog-accent-ink: var(--rv-catalog-accent);
+}
+.rv-offer-catalog[data-active-institute="cuetmx"], .rv-offer-catalog [data-institute="cuetmx"] { --rv-catalog-accent:#551d26; --rv-catalog-secondary:#b6757f; }
+.rv-offer-catalog[data-active-institute="inafam"], .rv-offer-catalog [data-institute="inafam"] { --rv-catalog-accent:#114f5e; --rv-catalog-secondary:#319b8d; }
+.rv-offer-catalog[data-active-institute="antares"], .rv-offer-catalog [data-institute="antares"] { --rv-catalog-accent:#432153; --rv-catalog-secondary:#9b79af; }
+.rv-offer-catalog[data-active-institute="nicolas"], .rv-offer-catalog [data-institute="nicolas"] { --rv-catalog-accent:#212950; --rv-catalog-secondary:#781613; }
+
+/* One small composited animation, rather than a canvas or a page-size blur. */
+.rv-offer-atmosphere {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 860px;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(#000 0%,#000 62%,transparent 100%);
+}
+.rv-offer-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/media/phase1/ravsoja-pattern-light.jpg') center top / cover;
+  opacity: .9;
+}
+.rv-offer-atmosphere__flow {
+  position: absolute;
+  inset: -12%;
+  background:
+    radial-gradient(ellipse at 85% 25%,color-mix(in srgb,var(--rv-catalog-secondary) 26%,transparent),transparent 57%),
+    radial-gradient(ellipse at 12% 65%,color-mix(in srgb,var(--rv-catalog-accent) 12%,transparent),transparent 62%);
+  transform-origin: 70% 25%;
+  animation: rv-catalog-breathe 22s ease-in-out infinite alternate;
+}
+@keyframes rv-catalog-breathe {
+  from { transform:translate3d(-2%,1%,0) scale(1); }
+  to { transform:translate3d(3%,-3%,0) scale(1.08); }
+}
+.rv-offer-catalog__container { position:relative;width:min(1200px,calc(100% - 64px)); }
+.rv-offer-catalog__back { background:transparent;box-shadow:none;border-color:var(--catalog-line);color:var(--rv-muted); }
+.rv-offer-catalog__header { margin:40px 0 30px;gap:40px; }
+.rv-offer-catalog__header h1 { font-size:clamp(48px,6.1vw,84px);letter-spacing:-.055em;line-height:1.06;font-weight:500; }
+.rv-offer-catalog__header h1 span { display:block;width:fit-content;color:var(--catalog-accent-ink);font-weight:400;letter-spacing:-.045em;transition:color .8s; }
+.rv-offer-catalog__header .rv-offer-offer__eyebrow { color:var(--catalog-accent-ink);font-size:10px;letter-spacing:.18em;line-height:1.7; }
+.rv-offer-catalog__header > div > p:last-child { max-width:590px;font-size:15px;line-height:1.8;margin-top:24px; }
+.rv-offer-catalog__sort { flex-basis:248px;color:var(--rv-muted);letter-spacing:.12em; }
+.rv-offer-catalog__sort-trigger { border-radius:16px;min-height:52px;background:var(--catalog-surface);border-color:var(--catalog-line);box-shadow:0 8px 22px #151f3910; }
+.rv-offer-catalog__sort-trigger::before { display:none; }
+.rv-offer-catalog__sort-trigger svg { color:var(--catalog-accent-ink); }
+.rv-offer-catalog__sort-menu { background:var(--catalog-surface);border-color:var(--catalog-line);box-shadow:0 18px 44px #10182e25; }
+.rv-offer-catalog__sort-option[aria-selected="true"] { background:var(--rv-catalog-accent);border-color:var(--rv-catalog-accent); }
+
+/* A single quiet filter surface keeps the controls visually related. */
+.rv-offer-filters {
+  padding:24px;
+  margin:34px 0 22px;
+  border:1px solid var(--catalog-line);
+  border-radius:26px;
+  background:color-mix(in srgb,var(--catalog-surface) 85%,transparent);
+  box-shadow:0 12px 38px #1b234b07,inset 0 1px var(--catalog-lift);
+}
+.rv-offer-institutions { gap:9px;margin-bottom:22px; }
+.rv-offer-institutions button { background:transparent;border-color:var(--catalog-line);padding:8px 14px;transition:transform .25s ease,background .35s ease,box-shadow .35s ease,border-color .35s ease; }
+.rv-offer-institutions button[aria-pressed="true"] { background:var(--institution-accent,#212a51);border-color:var(--institution-accent,#212a51);color:#fff;box-shadow:0 5px 14px color-mix(in srgb,var(--institution-accent,#212a51) 18%,transparent); }
+.rv-offer-institutions button:hover { border-color:var(--institution-accent,#212a51);box-shadow:0 4px 12px #212a5110; }
+.rv-offer-institutions img { padding:3px;width:30px;height:30px; }
+.rv-offer-filter-row { gap:14px;grid-template-columns:minmax(0,1fr) 225px auto; }
+.rv-offer-filter-row label { font-weight:500;font-size:11px;letter-spacing:.025em;min-width:0; }
+.rv-offer-filter-row :is(input,select) { background:var(--catalog-paper);border-color:var(--catalog-line);border-radius:12px;transition:background .25s,border-color .25s,box-shadow .25s; }
+.rv-offer-filter-row :is(input,select):focus { border-color:var(--catalog-accent-ink);background:var(--catalog-surface);box-shadow:0 0 0 4px color-mix(in srgb,var(--rv-catalog-secondary) 13%,transparent); }
+.rv-offer-view { background:var(--catalog-paper);border:1px solid var(--catalog-line);border-radius:13px;padding:3px; }
+.rv-offer-view button { font-size:12px;min-height:40px;transition:background .25s,color .25s; }
+.rv-offer-view button[aria-pressed="true"] { background:var(--catalog-surface);color:var(--catalog-accent-ink);box-shadow:0 2px 8px #10182e12; }
+.rv-offer-catalog__summary { border:0;align-items:center;padding:0 3px;margin:0 0 34px;font-size:10px;letter-spacing:.08em; }
+.rv-offer-catalog__summary > span:first-child { padding:8px 12px;border:1px solid var(--catalog-line);border-radius:999px;color:var(--catalog-accent-ink);background:var(--catalog-surface); }
+
+/* Institute dividers share geometry and receive only a chromatic variation. */
+.rv-offer-group { position:relative;margin-top:62px; }
+.rv-offer-group + .rv-offer-group { margin-top:88px; }
+.rv-offer-group__heading { position:relative;gap:18px;padding:0 0 22px;margin-bottom:28px;border-bottom:1px solid color-mix(in srgb,var(--rv-catalog-accent) 16%,var(--catalog-paper)); }
+.rv-offer-group__heading::after { content:"";position:absolute;bottom:-1px;left:0;width:72px;height:3px;border-radius:4px;background:linear-gradient(90deg,var(--rv-catalog-accent),var(--rv-catalog-secondary)); }
+.rv-offer-group__heading img { width:62px;height:62px;padding:10px;border-radius:18px;background:#fff;box-shadow:0 6px 18px color-mix(in srgb,var(--rv-catalog-accent) 9%,transparent);border:1px solid color-mix(in srgb,var(--rv-catalog-accent) 10%,white); }
+.rv-offer-group__heading h2 { font-size:clamp(24px,3vw,36px);letter-spacing:-.035em;font-weight:600;color:var(--catalog-accent-ink); }
+.rv-offer-group__heading > span { display:grid;place-items:center;flex-shrink:0;min-width:40px;height:40px;padding:0 10px;border:1px solid var(--catalog-line);border-radius:50%;background:var(--catalog-surface);color:var(--catalog-accent-ink);font-size:14px; }
+.rv-offer-catalog__grid { gap:28px; }
+
+/* Fade ends on the exact same surface color as the body: no visible seam. */
+:root .rv-offer-catalog .rv-offer-program-card {
+  --card-surface:color-mix(in srgb,var(--rv-catalog-accent) 3%,var(--catalog-surface));
+  position:relative;
+  border-radius:28px;
+  border:1px solid color-mix(in srgb,var(--rv-catalog-accent) 12%,var(--catalog-surface));
+  background:var(--card-surface);
+  box-shadow:0 5px 12px #18203e04,0 18px 38px #18203e0a,inset 0 1px var(--catalog-lift);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s;
+}
+.rv-offer-catalog .rv-offer-program-card__media { width:100%;height:280px;margin:0;border-radius:27px 27px 0 0;background:var(--card-surface); }
+.rv-offer-catalog .rv-offer-program-card__image { object-position:center 40%;transform:scale(1); }
+.rv-offer-catalog .rv-offer-program-card__image-overlay {
+  background:linear-gradient(180deg,rgba(11,16,38,.14),transparent 34%,color-mix(in srgb,var(--card-surface) 0%,transparent) 52%,color-mix(in srgb,var(--card-surface) 14%,transparent) 64%,color-mix(in srgb,var(--card-surface) 48%,transparent) 78%,color-mix(in srgb,var(--card-surface) 87%,transparent) 92%,var(--card-surface) 100%);
+}
+.rv-offer-catalog .rv-offer-program-card__top { top:16px;left:16px;right:16px;gap:8px; }
+.rv-offer-catalog :is(.rv-offer-program-card__category,.rv-offer-program-card__duration) { background:#111a31bd;border:1px solid #ffffff38;box-shadow:0 2px 8px #10182e10;backdrop-filter:blur(8px);font-size:10px;line-height:1.4;font-weight:500;min-height:30px;padding:6px 10px; }
+.rv-offer-catalog .rv-offer-program-card__category { max-width:66%; }
+.rv-offer-catalog .rv-offer-program-card__body { position:relative;padding:0 24px 24px;margin-top:-2px;gap:0; }
+.rv-offer-catalog .rv-offer-program-card__heading { display:flex;flex-direction:column;align-items:flex-start;gap:14px; }
+.rv-offer-catalog .rv-offer-program-card__heading > div { min-width:0; }
+.rv-offer-catalog .rv-offer-program-card__heading h3 { font-size:clamp(23px,2vw,27px);font-weight:600;line-height:1.16;letter-spacing:-.035em;overflow-wrap:break-word; }
+.rv-offer-catalog .rv-offer-program-card__mini-label { color:var(--catalog-accent-ink);letter-spacing:.16em;font-size:10px;margin-bottom:8px; }
+:root .rv-offer-catalog .rv-offer-program-card__badge { font-size:10px;letter-spacing:.025em;padding:5px 10px 5px 6px;border-radius:999px;border-color:color-mix(in srgb,var(--rv-catalog-accent) 18%,var(--card-surface));color:var(--catalog-accent-ink);background:color-mix(in srgb,var(--rv-catalog-accent) 5%,var(--catalog-surface));max-width:100%; }
+.rv-offer-catalog .rv-offer-program-card__badge img { width:24px;height:24px;padding:3px;background:white;border-radius:50%; }
+.rv-offer-catalog .rv-offer-program-card__meta { display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px; }
+.rv-offer-catalog .rv-offer-program-card__meta .rv-offer-program-card__badge { flex:0 1 auto;max-width:46%;min-width:0; }
+.rv-offer-catalog .rv-offer-program-card__date { display:grid;grid-template-columns:5px minmax(0,1fr);align-items:center;flex:0 1 auto;min-width:0;margin:0;padding:0;gap:2px 6px;line-height:1.4; }
+.rv-offer-catalog .rv-offer-program-card__date strong { grid-column:1 / -1;color:var(--catalog-accent-ink);font-size:11px;overflow-wrap:break-word; }
+.rv-offer-catalog .rv-offer-program-card__date-dot { background:var(--catalog-accent-ink);width:5px;height:5px; }
+.rv-offer-catalog .rv-offer-program-card__divider { background:color-mix(in srgb,var(--rv-catalog-accent) 13%,var(--card-surface));margin:17px 0; }
+.rv-offer-catalog .rv-offer-program-card__footer { align-items:center; }
+.rv-offer-catalog .rv-offer-program-card__modality span { font-size:9px;letter-spacing:.13em; }
+.rv-offer-catalog .rv-offer-program-card__modality strong { font-size:12px; }
+.rv-offer-catalog .rv-offer-program-card__button { background:linear-gradient(120deg,color-mix(in srgb,var(--rv-catalog-accent) 90%,var(--rv-catalog-secondary)),var(--rv-catalog-accent));box-shadow:0 5px 14px color-mix(in srgb,var(--rv-catalog-accent) 17%,transparent);font-size:12px;gap:10px;padding-left:16px;min-height:44px; }
+.rv-offer-catalog .rv-offer-program-card__button-icon { color:var(--rv-catalog-accent);transition:transform .3s; }
+.rv-offer-catalog .rv-offer-program-card__button:hover .rv-offer-program-card__button-icon { transform:rotate(45deg); }
+
+/* Missing covers use existing institute marks in a dimensional identity plate. */
+.rv-offer-catalog .rv-offer-program-card[data-logo-cover] .rv-offer-program-card__media {
+  background:radial-gradient(ellipse at 30% 25%,color-mix(in srgb,var(--rv-catalog-secondary) 28%,transparent),transparent 70%),linear-gradient(140deg,color-mix(in srgb,var(--rv-catalog-accent) 8%,var(--catalog-surface)),var(--card-surface));
+}
+.rv-offer-catalog .rv-offer-program-card[data-logo-cover] .rv-offer-program-card__media::before {
+  content:"";position:absolute;width:180px;height:180px;left:50%;top:48%;transform:translate(-50%,-50%) rotate(-12deg);border:1px solid color-mix(in srgb,var(--rv-catalog-accent) 15%,transparent);border-radius:38px;box-shadow:0 0 0 20px color-mix(in srgb,var(--rv-catalog-accent) 3%,transparent),0 0 0 42px color-mix(in srgb,var(--rv-catalog-accent) 2%,transparent);
+}
+.rv-offer-catalog .rv-offer-program-card__image.is-logo { position:relative;width:138px;height:138px;margin:62px auto 0;padding:22px;background:#fff;border:1px solid #ffffff80;border-radius:30px;object-fit:contain;box-shadow:0 14px 28px color-mix(in srgb,var(--rv-catalog-accent) 15%,transparent); }
+@media(hover:hover) and (pointer:fine) {
+  :root .rv-offer-catalog .rv-offer-program-card:hover { transform:translateY(-6px);border-color:color-mix(in srgb,var(--rv-catalog-accent) 35%,var(--catalog-surface));box-shadow:0 22px 46px color-mix(in srgb,var(--rv-catalog-accent) 14%,transparent),0 4px 12px #18203e07; }
+  .rv-offer-catalog .rv-offer-program-card:hover .rv-offer-program-card__image { transform:scale(1.045); }
+}
+
+/* Theme colors are scoped to this catalogue; Navbar and the home Hero are untouched. */
+:root[data-rav-theme="dark"] .rv-offer-catalog {
+  --catalog-paper:#101725;--catalog-surface:#192335;--catalog-line:#ced9f123;--catalog-lift:#ffffff0d;
+  --catalog-accent-ink:color-mix(in srgb,var(--rv-catalog-secondary) 45%,#f0f2ff);
+  background:var(--catalog-paper);
+}
+:root[data-rav-theme="dark"] .rv-offer-catalog :is(.rv-offer-group,.rv-offer-program-card) { --catalog-accent-ink:color-mix(in srgb,var(--rv-catalog-secondary) 45%,#f0f2ff); }
+:root[data-rav-theme="dark"] .rv-offer-atmosphere::before { background-image:url('/media/phase1/ravsoja-pattern-dark.jpg');opacity:.45; }
+:root[data-rav-theme="dark"] .rv-offer-atmosphere__flow { opacity:.8; }
+:root[data-rav-theme="dark"] .rv-offer-catalog__header h1 span { color:var(--catalog-accent-ink); }
+:root[data-rav-theme="dark"] .rv-offer-catalog :is(.rv-offer-catalog__back,.rv-offer-catalog__sort-trigger,.rv-offer-catalog__sort-menu,.rv-offer-filter-row input,.rv-offer-filter-row select) { background:var(--catalog-surface);border-color:var(--catalog-line); }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-institutions button { background:transparent;border-color:var(--catalog-line); }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-institutions button[aria-pressed="true"] { background:var(--institution-accent,#212a51);border-color:color-mix(in srgb,var(--institution-accent,#212a51) 50%,#bbc7e8); }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-view button { background:transparent; }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-view button[aria-pressed="true"] { background:#2a3850;color:var(--rv-ink); }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-catalog__sort-option { background:transparent; }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-catalog__sort-option[aria-selected="true"] { background:var(--rv-catalog-accent); }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-catalog__sort-option:hover { color:#fff;background:#31415b; }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-program-card { --card-surface:color-mix(in srgb,var(--rv-catalog-accent) 16%,var(--catalog-surface));border-color:color-mix(in srgb,var(--rv-catalog-secondary) 22%,var(--catalog-surface));background:var(--card-surface); }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-program-card__badge { background:color-mix(in srgb,var(--rv-catalog-accent) 12%,var(--catalog-surface));color:var(--catalog-accent-ink);border-color:var(--catalog-line); }
+:root[data-rav-theme="dark"] .rv-offer-group__heading { border-color:var(--catalog-line); }
+:root[data-rav-theme="dark"] .rv-offer-group__heading::after { background:var(--rv-catalog-secondary); }
+
+@media(max-width:1000px) {
+  .rv-offer-filter-row { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .rv-offer-catalog__header { gap:24px; }
+  .rv-offer-catalog__sort { flex-basis:220px; }
+  .rv-offer-catalog .rv-offer-program-card__body { padding-inline:20px; }
+}
+@media(max-width:720px) {
+  .rv-offer-catalog { padding-top:116px; }
+  .rv-offer-catalog__container { width:calc(100% - 32px); }
+  .rv-offer-catalog__header { margin-top:28px;gap:24px; }
+  .rv-offer-catalog__header h1 { font-size:clamp(38px,9.4vw,62px);line-height:1.07; }
+  .rv-offer-catalog__header > div > p:last-child { font-size:14px;line-height:1.7;margin-top:18px; }
+  .rv-offer-catalog__header .rv-offer-offer__eyebrow { font-size:9px;letter-spacing:.1em; }
+  .rv-offer-filters { padding:16px;margin-top:24px;border-radius:22px; }
+  .rv-offer-institutions { gap:8px;margin-bottom:18px; }
+  .rv-offer-institutions button { padding:8px;font-size:11px;gap:6px; }
+  .rv-offer-institutions img { width:26px;height:26px;flex-shrink:0; }
+  .rv-offer-filter-row { grid-template-columns:minmax(0,1fr); }
+  .rv-offer-filter-row :is(input,select) { font-size:16px; }
+  .rv-offer-catalog__summary { gap:12px;justify-items:start;line-height:1.7; }
+  .rv-offer-group { margin-top:36px; }
+  .rv-offer-group + .rv-offer-group { margin-top:60px; }
+  .rv-offer-group__heading { gap:12px;padding-bottom:18px;margin-bottom:22px; }
+  .rv-offer-group__heading img { width:48px;height:48px;padding:8px;border-radius:14px;flex-shrink:0; }
+  .rv-offer-group__heading h2 { font-size:24px;text-wrap:initial; }
+  .rv-offer-group__heading > span { min-width:32px;height:32px;font-size:12px; }
+  .rv-offer-catalog .rv-offer-program-card__media { height:clamp(255px,72vw,350px); }
+  .rv-offer-catalog .rv-offer-program-card__heading h3 { font-size:26px; }
+  .rv-offer-catalog .rv-offer-program-card__body { padding:0 22px 22px; }
+  .rv-offer-catalog .rv-offer-program-card__image.is-logo { margin-top:68px; }
+}
+@media(max-width:360px) {
+  .rv-offer-catalog__container { width:calc(100% - 24px); }
+  .rv-offer-filters { padding:12px; }
+  .rv-offer-catalog .rv-offer-program-card__top { left:12px;right:12px;gap:6px; }
+  .rv-offer-catalog .rv-offer-program-card__body { padding-inline:18px; }
+  .rv-offer-group__heading h2 { font-size:21px; }
+}
+@media(hover:none) { .rv-offer-catalog .rv-offer-program-card:hover { transform:none; } }
+@media(prefers-reduced-motion:reduce) {
+  .rv-offer-catalog, .rv-offer-catalog *, .rv-offer-catalog *::before, .rv-offer-catalog *::after { animation:none!important;transition:none!important; }
+  .rv-offer-catalog .rv-offer-program-card:hover, .rv-offer-catalog .rv-offer-program-card:hover .rv-offer-program-card__image { transform:none; }
+}

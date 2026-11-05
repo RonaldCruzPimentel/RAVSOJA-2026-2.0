@@ -1,0 +1,11 @@
+.rav-header .unlumen-theme-switch__icon { grid-area:1 / 1; display:grid; place-items:center; }
+.rav-header .unlumen-theme-switch { touch-action:manipulation; transition:background-color .15s; }
+:root[data-rav-theme-transition]::view-transition-group(root) { animation-duration:0s; }
+:root[data-rav-theme-transition]::view-transition-old(root),
+:root[data-rav-theme-transition]::view-transition-new(root) { animation:none; mix-blend-mode:normal; }
+:root[data-rav-theme-transition]::view-transition-old(root) { z-index:1; }
+:root[data-rav-theme-transition]::view-transition-new(root) { z-index:2; }
+:root[data-rav-theme-transition]::view-transition { pointer-events:none; }
+:root[data-rav-theme-transition] :is(.rav-header,.rav-hero) *,
+:root[data-rav-theme-transition] :is(.rav-header,.rav-hero) *::before,
+:root[data-rav-theme-transition] :is(.rav-header,.rav-hero) *::after { transition:none !important; }

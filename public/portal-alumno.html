@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Portal Alumno | RAVSOJA</title>
+
+  <link rel="icon" type="image/png" href="/favicon-128.png" />
+
+  <meta
+    name="description"
+    content="Portal Alumno del Consorcio Educativo RAVSOJA."
+  />
+
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+
+    body {
+
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 32px;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(36, 87, 167, 0.15),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(29, 116, 141, 0.12),
+          transparent 35%
+        ),
+        #07111d;
+
+      color: #ffffff;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      overflow-x: hidden;
+
+    }
+
+    a:focus-visible {
+      outline: 3px solid #89a9db;
+      outline-offset: 4px;
+    }
+
+
+
+    /* =====================================================
+       DECORACIÓN DE FONDO
+    ===================================================== */
+
+    .glow {
+
+      position: fixed;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(36, 87, 167, 0.12);
+
+      filter: blur(90px);
+
+      pointer-events: none;
+
+    }
+
+
+    .glow-one {
+
+      top: -150px;
+      left: -150px;
+
+    }
+
+
+    .glow-two {
+
+      right: -170px;
+      bottom: -170px;
+
+    }
+
+
+
+    /* =====================================================
+       TARJETA PRINCIPAL
+    ===================================================== */
+
+    .maintenance {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: 100%;
+      max-width: 900px;
+
+      min-height: 760px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding:
+        65px
+        55px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+      border-radius: 34px;
+
+      background:
+        rgba(255, 255, 255, 0.045);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0
+        30px
+        80px
+        rgba(0, 0, 0, 0.25);
+
+    }
+
+
+
+    /* =====================================================
+       BLOQUE SUPERIOR
+    ===================================================== */
+
+    .top-brand {
+
+      width: 100%;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      margin-bottom: 26px;
+
+    }
+
+
+
+    /* =====================================================
+       LOGO
+    ===================================================== */
+
+    .logo {
+
+      display: block;
+
+      width: 115px;
+      height: 115px;
+
+      object-fit: contain;
+
+      margin:
+        0
+        auto
+        26px;
+
+    }
+
+
+
+    /* =====================================================
+       ESTADO
+    ===================================================== */
+
+    .status {
+
+      width: fit-content;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      margin:
+        0
+        auto
+        27px;
+
+      padding:
+        9px
+        16px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+      border-radius: 999px;
+
+      background:
+        rgba(255, 255, 255, 0.06);
+
+      color:
+        rgba(255, 255, 255, 0.75);
+
+      font-size: 12px;
+
+      font-weight: 500;
+
+      letter-spacing: 0.12em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .status-dot {
+
+      width: 7px;
+      height: 7px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background: #5d8fe0;
+
+      box-shadow:
+        0
+        0
+        0
+        5px
+        rgba(93, 143, 224, 0.12);
+
+    }
+
+
+
+    /* =====================================================
+       PORTAL ALUMNO
+    ===================================================== */
+
+    .eyebrow {
+
+      width: 100%;
+
+      margin: 0;
+
+      text-align: center;
+
+      color: #89a9db;
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+    }
+
+
+
+    /* =====================================================
+       TÍTULO
+    ===================================================== */
+
+    h1 {
+
+      width: 100%;
+
+      max-width: 720px;
+
+      margin:
+        0
+        auto
+        25px;
+
+      color: #ffffff;
+
+      font-size:
+        clamp(
+          2.6rem,
+          6vw,
+          5.3rem
+        );
+
+      font-weight: 400;
+
+      line-height: 0.99;
+
+      letter-spacing: -0.05em;
+
+      text-align: center;
+
+    }
+
+
+
+    /* =====================================================
+       DESCRIPCIÓN
+    ===================================================== */
+
+    .description {
+
+      width: 100%;
+
+      max-width: 620px;
+
+      margin:
+        0
+        auto;
+
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.62
+        );
+
+      font-size: 17px;
+
+      line-height: 1.7;
+
+      text-align: center;
+
+    }
+
+
+
+    /* =====================================================
+       DIVISOR
+    ===================================================== */
+
+    .divider {
+
+      width: 70px;
+      height: 1px;
+
+      margin:
+        35px
+        auto;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.18
+        );
+
+    }
+
+
+
+    /* =====================================================
+       BOTONES
+    ===================================================== */
+
+    .actions {
+
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    .button {
+
+      min-height: 52px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        0
+        24px;
+
+      border-radius: 15px;
+
+      text-decoration: none;
+
+      font-size: 15px;
+
+      font-weight: 500;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    }
+
+
+    .button:hover {
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+
+    /* BOTÓN REGRESAR */
+
+    .button-secondary {
+
+      color: #ffffff;
+
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.16
+        );
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.05
+        );
+
+    }
+
+
+    .button-secondary:hover {
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.1
+        );
+
+      border-color:
+        rgba(
+          255,
+          255,
+          255,
+          0.25
+        );
+
+    }
+
+
+
+    /* BOTÓN WHATSAPP */
+
+    .button-primary {
+
+      background: #2457A7;
+
+      color: #ffffff;
+
+      border:
+        1px solid #2457A7;
+
+      box-shadow:
+        0
+        10px
+        30px
+        rgba(
+          36,
+          87,
+          167,
+          0.18
+        );
+
+    }
+
+
+    .button-primary:hover {
+
+      background: #1d4c92;
+
+      border-color: #1d4c92;
+
+      box-shadow:
+        0
+        15px
+        35px
+        rgba(
+          36,
+          87,
+          167,
+          0.28
+        );
+
+    }
+
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer-text {
+
+      width: 100%;
+
+      margin-top: 38px;
+
+      text-align: center;
+
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.32
+        );
+
+      font-size: 12px;
+
+      line-height: 1.5;
+
+      letter-spacing: 0.04em;
+
+    }
+
+
+
+    /* =====================================================
+       RESPONSIVE TABLET
+    ===================================================== */
+
+    @media (max-width: 768px) {
+
+      body {
+
+        padding: 20px;
+
+      }
+
+
+      .maintenance {
+
+        min-height: auto;
+
+        padding:
+          55px
+          30px;
+
+        border-radius: 28px;
+
+      }
+
+
+      .logo {
+
+        width: 100px;
+        height: 100px;
+
+      }
+
+
+      h1 {
+
+        max-width: 600px;
+
+      }
+
+    }
+
+
+
+    /* =====================================================
+       RESPONSIVE MÓVIL
+    ===================================================== */
+
+    @media (max-width: 600px) {
+
+      body {
+
+        padding: 16px;
+
+      }
+
+
+      .maintenance {
+
+        width: 100%;
+
+        padding:
+          42px
+          20px;
+
+        border-radius: 25px;
+
+      }
+
+
+      .top-brand {
+
+        margin-bottom: 22px;
+
+      }
+
+
+      .logo {
+
+        width: 88px;
+        height: 88px;
+
+        margin-bottom: 22px;
+
+      }
+
+
+      .status {
+
+        margin-bottom: 22px;
+
+        padding:
+          8px
+          13px;
+
+        font-size: 10px;
+
+      }
+
+
+      .eyebrow {
+
+        font-size: 12px;
+
+        letter-spacing: 0.16em;
+
+      }
+
+
+      h1 {
+
+        margin-bottom: 20px;
+
+        font-size:
+          clamp(
+            2.5rem,
+            13vw,
+            4rem
+          );
+
+        line-height: 1;
+
+      }
+
+
+      .description {
+
+        max-width: 430px;
+
+        font-size: 15px;
+
+        line-height: 1.65;
+
+      }
+
+
+      .divider {
+
+        margin:
+          28px
+          auto;
+
+      }
+
+
+      .actions {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+      }
+
+
+      .button {
+
+        width: 100%;
+
+      }
+
+
+      .footer-text {
+
+        margin-top: 30px;
+
+        font-size: 11px;
+
+      }
+
+    }
+
+
+
+    /* =====================================================
+       PANTALLAS MUY PEQUEÑAS
+    ===================================================== */
+
+    @media (max-width: 380px) {
+
+      .maintenance {
+
+        padding:
+          36px
+          17px;
+
+      }
+
+
+      h1 {
+
+        font-size: 2.45rem;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+  <!-- DECORACIÓN -->
+
+  <div class="glow glow-one"></div>
+
+  <div class="glow glow-two"></div>
+
+
+
+  <!-- =====================================================
+       CONTENIDO
+  ====================================================== -->
+
+  <main class="maintenance">
+
+
+    <!-- =====================================================
+         PARTE SUPERIOR CENTRADA
+    ====================================================== -->
+
+    <div class="top-brand">
+
+
+      <img
+        src="/logo-512.webp"
+        alt="Consorcio Educativo RAVSOJA"
+        class="logo"
+      />
+
+
+      <div class="status">
+
+        <span class="status-dot"></span>
+
+        <span>
+          Próximamente
+        </span>
+
+      </div>
+
+
+      <p class="eyebrow">
+
+        Portal Alumno
+
+      </p>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MENSAJE
+    ====================================================== -->
+
+    <h1>
+
+      Estamos preparando algo mejor para ti.
+
+    </h1>
+
+
+    <p class="description">
+
+      Nuestro Portal Alumno se encuentra actualmente
+      en proceso de renovación para ofrecerte una
+      experiencia más rápida, moderna y sencilla.
+
+      Muy pronto podrás consultar desde aquí tus
+      servicios y herramientas académicas.
+
+    </p>
+
+
+
+    <!-- DIVISOR -->
+
+    <div class="divider"></div>
+
+
+
+    <!-- =====================================================
+         BOTONES
+    ====================================================== -->
+
+    <div class="actions">
+
+
+      <a
+        href="/"
+        class="
+          button
+          button-secondary
+        "
+      >
+
+        Volver a RAVSOJA
+
+      </a>
+
+
+      <a
+        href="https://wa.me/529615987134?text=Hola%2C%20necesito%20apoyo%20con%20el%20Portal%20Alumno%20de%20RAVSOJA."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="
+          button
+          button-primary
+        "
+      >
+
+        Contactar por WhatsApp
+
+      </a>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PIE
+    ====================================================== -->
+
+    <p class="footer-text">
+
+      Consorcio Educativo RAVSOJA · Donde tú perteneces
+
+    </p>
+
+
+  </main>
+
+
+</body>
+
+</html>

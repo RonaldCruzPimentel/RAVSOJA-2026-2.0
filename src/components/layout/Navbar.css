@@ -1,0 +1,402 @@
+/* RAVSOJA content + Taste Skill capsule navigation. Layers: header 10, disclosures 20.
+   Neutral stage contains only the header. */
+.rav-header{font-family:"TT Fors",Arial,sans-serif;color:var(--ink);color-scheme:light;font-synthesis:none;--ink:#2457a7;--muted:#596775;--glass:rgba(251,252,253,.83);--panel:#f8fafc;--edge:rgba(30,49,70,.13);--hover:#ffffff;--accent:#2457a7;--focus:#2457a7;--shadow:0 6px 18px -8px rgba(13,27,41,.18),0 1px 2px rgba(13,27,41,.04);--ease:cubic-bezier(.16,1,.3,1)}
+.rav-header *{box-sizing:border-box}.rav-header button,.rav-header a{-webkit-tap-highlight-color:transparent}.rav-header button{font:inherit;cursor:pointer}.rav-header a{color:inherit;text-decoration:none}.rav-header button{color:inherit}.rav-header svg{flex-shrink:0}.rav-header button:focus-visible,.rav-header a:focus-visible{outline:3px solid var(--focus);outline-offset:4px}.rav-header [hidden]{display:none!important}
+.rav-header.header-wrap{position:fixed;z-index:1000;top:20px;inset-inline:28px;max-width:1240px;margin-inline:auto}
+.rav-header .header-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.rav-header .header-controls{display:flex;align-items:center;gap:10px;min-width:0}
+.rav-header .theme-toggle{position:relative;display:grid;place-items:center;flex-shrink:0;width:54px;height:54px;padding:0;border:1px solid var(--edge);border-radius:50%;color:var(--ink);background:var(--glass);box-shadow:var(--shadow);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background-color .3s var(--ease),transform .3s var(--ease)}
+.rav-header .theme-toggle:hover{background:var(--panel)}
+.rav-header .menu-morph{transition:transform 500ms ease-in-out}.rav-header .menu-morph.is-open{transform:rotate(-45deg)}
+.rav-header .menu-morph__line{stroke-dasharray:12 63;stroke-dashoffset:0;transition:stroke-dasharray 500ms ease-in-out,stroke-dashoffset 500ms ease-in-out}
+.rav-header .menu-morph.is-open .menu-morph__line{stroke-dasharray:20 300;stroke-dashoffset:-32.42px}
+.rav-header .brand,.rav-header .navigation-capsule{border:1px solid var(--edge);background:var(--glass);backdrop-filter:blur(16px) saturate(130%);-webkit-backdrop-filter:blur(16px) saturate(130%);box-shadow:var(--shadow)}
+.rav-header .brand{display:flex;align-items:center;gap:10px;flex-shrink:0;padding:6px 21px 6px 10px;border-radius:24px;transition:background-color .4s var(--ease),box-shadow .4s var(--ease),transform .4s var(--ease)}
+.rav-header .brand__crest{width:58px;height:58px;object-fit:contain;transition:transform .5s var(--ease)}
+.rav-header .brand__type{display:flex;flex-direction:column;gap:3px}.rav-header .brand__type small{font-size:10px;color:var(--muted);letter-spacing:.045em;white-space:nowrap}.rav-header .brand__type strong{font-weight:500;font-size:28px;letter-spacing:-.035em;line-height:1.08}
+.rav-header .brand:hover{background:var(--panel);box-shadow:0 12px 28px -12px rgba(13,27,41,.25)}.rav-header .brand:hover .brand__crest{transform:translateY(-1px) rotate(-3deg)}.rav-header .brand:active{transform:scale(.98)}
+.rav-header .navigation-capsule{display:flex;align-items:center;gap:8px;padding:7px;border-radius:999px;min-width:0;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.rav-header .navigation-capsule:hover{box-shadow:0 10px 26px -12px rgba(13,27,41,.25)}
+.rav-header .desktop-nav{display:flex;align-items:center;gap:2px;min-width:0}.rav-header .nav-pill{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:0 12px;height:40px;white-space:nowrap;border:0;border-radius:999px;background:transparent;font-size:12px;line-height:1.2;transition:transform .3s cubic-bezier(.34,1.56,.64,1),color .3s}
+.rav-header .nav-pill__fill{position:absolute;inset:0;border-radius:inherit;background:var(--hover);box-shadow:0 3px 8px -6px rgba(13,27,41,.24);z-index:-1;pointer-events:none}
+.rav-header .nav-pill__label{position:relative}.rav-header .nav-arrow{opacity:0;transform:translate(-4px,3px);transition:opacity .25s,transform .35s var(--ease)}
+.rav-header .nav-pill:hover,.rav-header .nav-pill:focus-visible{transform:translateY(-1px)}.rav-header .nav-pill:hover .nav-arrow,.rav-header .nav-pill:focus-visible .nav-arrow{opacity:1;transform:translate(0,0)}.rav-header .nav-pill:active{transform:scale(.97)}.rav-header .chevron{transition:transform .3s var(--ease)}.rav-header .chevron.is-open{transform:rotate(180deg)}
+.rav-header .desktop-actions{display:flex;align-items:center;gap:7px}.rav-header .action{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;border:1px solid transparent;border-radius:999px;padding:0 16px;font-size:12px;white-space:nowrap;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background-color .4s var(--ease)}
+.rav-header .action::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.2) 48%,transparent 75%);transform:translateX(-130%);transition:transform .65s var(--ease);pointer-events:none}.rav-header .action:hover::before,.rav-header .action:focus-visible::before{transform:translateX(130%)}
+.rav-header .action svg{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}.rav-header .action:hover svg{transform:translateY(-1px) rotate(-6deg)}.rav-header .action:hover{transform:translateY(-1px)}.rav-header .action:active{transform:scale(.97)}
+.rav-header{--brand-label:#0b1026;--whatsapp-bg:#25d366;--whatsapp-ink:#0b1026}
+:root[data-rav-theme="dark"] .rav-header{--brand-label:#edf3f9;--whatsapp-bg:#114443;--whatsapp-ink:#fff}
+.rav-header .brand__type strong{color:var(--brand-label)}
+.rav-header .action--whatsapp{color:var(--whatsapp-ink);background:var(--whatsapp-bg);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}.rav-header .action--whatsapp:hover{background:var(--whatsapp-bg);box-shadow:0 8px 18px -8px rgba(17,68,67,.5)}.rav-header .action--portal{background:var(--panel);border-color:var(--edge);color:var(--brand-label)}.rav-header .action--portal:hover{background:var(--hover)}
+.rav-header .institution-disclosure{position:relative}.rav-header .institution-dropdown{position:absolute;z-index:20;top:calc(100% + 18px);left:50%;width:340px;transform:translateX(-50%);padding:8px;border:1px solid var(--edge);border-radius:24px;background:var(--panel);box-shadow:0 20px 50px -20px rgba(13,27,41,.28);animation:dropdown-enter .25s var(--ease)}
+.rav-header .institution-link{display:flex;align-items:center;gap:12px;border-radius:17px;padding:11px 12px;transition:background-color .25s,transform .3s var(--ease)}.rav-header .institution-link:hover,.rav-header .institution-link:focus-visible{background:var(--hover);transform:translateX(2px)}.rav-header .institution-logo{display:grid;place-items:center;flex-shrink:0;width:47px;height:47px;background:#f0f3f7;border-radius:13px}.rav-header .institution-logo img{width:38px;height:38px;object-fit:contain}.rav-header .institution-copy{flex:1;min-width:0;display:grid;gap:4px}.rav-header .institution-copy strong{font-size:14px;font-weight:500}.rav-header .institution-copy small{font-size:11px;line-height:1.4;color:var(--muted)}.rav-header .institution-link>svg{color:var(--muted);transition:transform .25s var(--ease)}.rav-header .institution-link:hover>svg{transform:translate(2px,-2px)}
+.rav-header .menu-toggle{display:none;width:42px;height:42px;align-items:center;justify-content:center;border:1px solid var(--edge);border-radius:50%;background:var(--panel);transition:transform .25s var(--ease),background-color .25s}.rav-header .menu-toggle:hover{background:var(--hover)}.rav-header .menu-toggle:active{transform:scale(.94)}
+.rav-header .mobile-navigation{display:none;position:absolute;top:calc(100% + 12px);inset-inline:0;max-height:calc(100dvh - 110px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:12px;border:1px solid var(--edge);border-radius:26px;background:var(--panel);box-shadow:0 20px 45px -20px rgba(13,27,41,.22);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-12px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s}
+.rav-header .mobile-link{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:48px;padding:12px 14px;border:0;border-radius:15px;text-align:left;background:transparent;font-size:14px}.rav-header .mobile-link:hover,.rav-header .mobile-link:focus-visible{background:var(--hover)}.rav-header .mobile-institutions{padding:4px 0 10px}.rav-header .mobile-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px solid var(--edge);margin-top:8px;padding:14px 2px 2px}.rav-header .mobile-actions .action{min-height:46px}
+@keyframes dropdown-enter{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+.rav-header .mobile-navigation.is-open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+/* Above the compact-phone breakpoint, these actions already appear in the header. */
+@media(min-width:600.01px){.rav-header .mobile-actions{display:none}}
+@media(min-width:1440px){.rav-header .nav-pill{font-size:13px;padding-inline:15px}.rav-header .action{font-size:13px;padding-inline:18px}}
+@media(max-width:1279px){.rav-header .desktop-nav{display:none}.rav-header .menu-toggle{display:inline-flex}.rav-header .mobile-navigation{display:block;left:auto;width:370px}.rav-header.header-wrap{inset-inline:24px}.rav-header .header-row{gap:16px}}
+@media(max-width:600px){.rav-header .header-controls{gap:7px}.rav-header .theme-toggle{width:46px;height:46px}.rav-header.header-wrap{top:12px;inset-inline:12px}.rav-header .header-row{gap:8px}.rav-header .brand{border-radius:21px;padding:5px 14px 5px 7px;gap:7px}.rav-header .brand__crest{width:46px;height:46px}.rav-header .brand__type strong{font-size:24px}.rav-header .brand__type small{font-size:8px}.rav-header .navigation-capsule{padding:6px}.rav-header .desktop-actions{display:none}.rav-header .mobile-navigation{width:auto;left:0;right:0}.rav-header .mobile-navigation{max-height:calc(100dvh - 98px)}.rav-header .institution-link{padding-inline:8px}}
+@media(max-width:359px){.rav-header .brand{padding-right:9px;gap:5px}.rav-header .brand__type strong{font-size:21px}.rav-header .brand__crest{width:40px;height:40px}.rav-header .navigation-capsule{padding:3px}.rav-header .theme-toggle{width:42px;height:42px}.rav-header .header-controls{gap:5px}}
+@media(max-height:500px) and (orientation:landscape){.rav-header.header-wrap{top:8px}.rav-header .brand{padding-block:3px}.rav-header .brand__crest{width:42px;height:42px}.rav-header .brand__type strong{font-size:24px}.rav-header .mobile-navigation{max-height:calc(100dvh - 80px)}}
+:root[data-rav-theme="dark"] .rav-header{color-scheme:dark;--ink:#edf3f9;--muted:#b0c0cf;--glass:rgba(26,40,54,.88);--panel:#1b2b3b;--edge:rgba(213,230,247,.15);--hover:#2d4156;--focus:#9ac6ff;--shadow:0 6px 18px -8px rgba(0,8,16,.45)}
+@supports not (backdrop-filter:blur(16px)){.rav-header .brand,.rav-header .navigation-capsule,.rav-header .theme-toggle{background:var(--panel)}}
+@media(prefers-reduced-transparency:reduce){.rav-header .brand,.rav-header .navigation-capsule,.rav-header .theme-toggle{background:var(--panel);backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media(prefers-reduced-motion:reduce){.rav-header *,.rav-header *::before,.rav-header *::after{animation:none!important;transition:none!important}.rav-header .brand:hover .brand__crest,.rav-header .nav-pill:hover,.rav-header .nav-pill:focus-visible,.rav-header .action:hover,.rav-header .action:hover svg,.rav-header .institution-link:hover{transform:none}}
+
+/* Keep the approved capsules spacious with the restored catalog link. */
+@media (min-width:1280px) { .rav-header .nav-pill { padding-inline:8px; font-size:12px } .rav-header .action { padding-inline:13px; font-size:12px } }
+.rav-header .theme-toggle { transition:background-color .15s; }
+.rav-header .action, .rav-header .nav-pill { min-height:44px; }
+.rav-header .menu-toggle { width:44px; height:44px; flex-shrink:0; }
+.rav-header button, .rav-header a { touch-action:manipulation; }
+
+
+
+/* =====================================================
+   RAVSOJA — MENU INSTITUCIONES PREMIUM
+   Lista compacta + fondo deslizante
+   ===================================================== */
+
+/* PANEL DESPLEGABLE */
+
+.rav-header .institution-dropdown {
+  --menu-padding: 10px;
+  --heading-height: 30px;
+  --row-height: 62px;
+  --active-row: 0;
+  --active-color: #2457a7;
+
+  position: absolute;
+  isolation: isolate;
+
+  width: 330px;
+  max-width: calc(100vw - 24px);
+  top: calc(100% + 12px);
+  left: 50%;
+
+  padding: var(--menu-padding);
+  border-radius: 20px;
+  background: var(--panel);
+
+  box-shadow:
+    0 18px 44px -18px rgba(13, 27, 41, .25);
+}
+
+/* ENCABEZADO */
+
+.rav-header .institution-dropdown::before {
+  content: "NUESTROS INSTITUTOS";
+
+  display: flex;
+  align-items: center;
+
+  height: var(--heading-height);
+  padding: 0 10px;
+
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+
+/* ===============================================
+   FONDO QUE SE DESLIZA ENTRE INSTITUCIONES
+   =============================================== */
+
+@media (min-width: 1280px) {
+
+  .rav-header .institution-dropdown::after {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+
+    left: var(--menu-padding);
+    right: var(--menu-padding);
+
+    top: calc(
+      var(--menu-padding) + var(--heading-height)
+    );
+
+    height: var(--row-height);
+
+    border-radius: 12px;
+    background: var(--hover);
+
+    box-shadow:
+      0 3px 12px rgba(13, 27, 41, .07),
+      inset 3px 0 0 var(--active-color);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(
+      calc(var(--active-row) * var(--row-height))
+    );
+
+    transition:
+      transform .48s cubic-bezier(.22, 1, .36, 1),
+      opacity .2s ease,
+      box-shadow .25s ease;
+  }
+
+  /* Detectar la institución activa */
+
+  .rav-header .institution-dropdown:has(
+    > .institution-link:hover,
+    > .institution-link:focus-visible
+  )::after {
+    opacity: 1;
+  }
+
+  /* CUETMX */
+  .rav-header .institution-dropdown:has(
+    > .institution-link:nth-child(1):is(:hover, :focus-visible)
+  ) {
+    --active-row: 0;
+    --active-color: #551d26;
+  }
+
+  /* INAFAM */
+  .rav-header .institution-dropdown:has(
+    > .institution-link:nth-child(2):is(:hover, :focus-visible)
+  ) {
+    --active-row: 1;
+    --active-color: #114f5e;
+  }
+
+  /* NICOLAS MAQUIAVELO */
+  .rav-header .institution-dropdown:has(
+    > .institution-link:nth-child(3):is(:hover, :focus-visible)
+  ) {
+    --active-row: 2;
+    --active-color: #212950;
+  }
+
+  /* ANTARES */
+  .rav-header .institution-dropdown:has(
+    > .institution-link:nth-child(4):is(:hover, :focus-visible)
+  ) {
+    --active-row: 3;
+    --active-color: #432153;
+  }
+}
+
+/* ===============================================
+   FILAS HORIZONTALES
+   =============================================== */
+
+.rav-header .institution-link {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 62px;
+  min-height: 62px;
+
+  gap: 11px;
+  padding: 8px 10px;
+  margin: 0;
+
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+
+  transition: background-color .2s ease;
+}
+
+/* Evitar fondos anteriores superpuestos */
+
+@media (min-width: 1280px) {
+  .rav-header .institution-dropdown
+  .institution-link:hover,
+
+  .rav-header .institution-dropdown
+  .institution-link:focus-visible {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+/* ===============================================
+   LOGOTIPOS
+   =============================================== */
+
+.rav-header .institution-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 40px;
+
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+
+  background: #f1f3f7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rav-header .institution-logo img {
+  display: block;
+  width: 33px;
+  height: 33px;
+
+  max-width: 100%;
+  object-fit: contain;
+  transform: none;
+}
+
+/* ===============================================
+   TEXTOS ALINEADOS
+   =============================================== */
+
+.rav-header .institution-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  flex: 1 1 auto;
+  min-width: 0;
+
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.rav-header .institution-copy strong {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+
+  color: var(--brand-label);
+}
+
+.rav-header .institution-copy small {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 10px;
+  line-height: 1.35;
+
+  color: var(--muted);
+  white-space: normal;
+}
+
+/* ===============================================
+   FLECHAS
+   =============================================== */
+
+.rav-header .institution-link > svg {
+  display: block;
+  flex: 0 0 15px;
+
+  width: 15px;
+  height: 15px;
+
+  align-self: center;
+  margin-left: auto;
+
+  color: var(--muted);
+  opacity: .6;
+
+  transition:
+    transform .3s cubic-bezier(.16, 1, .3, 1),
+    opacity .25s ease;
+}
+
+.rav-header .institution-link:hover > svg,
+.rav-header .institution-link:focus-visible > svg {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* ===============================================
+   MOVIL Y TABLET
+   =============================================== */
+
+@media (max-width: 1279px) {
+
+  .rav-header .mobile-institutions {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+    padding: 5px 3px 10px;
+  }
+
+  .rav-header .mobile-institutions .institution-link {
+    height: auto;
+    min-height: 60px;
+
+    gap: 10px;
+    padding: 7px 8px;
+  }
+
+  .rav-header .mobile-institutions .institution-logo {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .rav-header .mobile-institutions .institution-logo img {
+    width: 31px;
+    height: 31px;
+  }
+
+  .rav-header .mobile-institutions .institution-copy strong {
+    font-size: 12px;
+  }
+
+  .rav-header .mobile-institutions .institution-copy small {
+    font-size: 10px;
+  }
+
+  .rav-header .mobile-institutions .institution-link:active {
+    background: var(--hover);
+  }
+}
+
+/* ===============================================
+   TEMA OSCURO
+   =============================================== */
+
+:root[data-rav-theme="dark"]
+.rav-header .institution-logo {
+  background: #eef1f5;
+}
+
+/* ===============================================
+   ACCESIBILIDAD
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .rav-header .institution-link,
+  .rav-header .institution-link > svg,
+  .rav-header .institution-dropdown::after {
+    transition: none !important;
+  }
+}

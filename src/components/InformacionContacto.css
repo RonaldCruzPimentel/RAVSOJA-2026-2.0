@@ -1,0 +1,664 @@
+/* =========================================================
+   INFORMACIÓN Y CONTACTO · RAVSOJA
+   ========================================================= */
+
+.contacto-ravsoja {
+  --rav-navy: #212a51;
+  --rav-blue: #1d748d;
+  --rav-sand: #c9bca4;
+  --rav-beige: #f0e9d9;
+  --rav-white: #f7f6f4;
+  --rav-ink: #171b2e;
+  --rav-muted: #676b78;
+  --rav-whatsapp: #168c62;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(5rem, 9vw, 9rem) 1.2rem 0;
+  background:
+    radial-gradient(
+      circle at 0% 20%,
+      rgba(29, 116, 141, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 70%,
+      rgba(180, 155, 124, 0.17),
+      transparent 31%
+    ),
+    var(--rav-white);
+  color: var(--rav-ink);
+}
+
+.contacto-ravsoja__container {
+  position: relative;
+  z-index: 2;
+  width: min(1220px, 100%);
+  margin-inline: auto;
+}
+
+.contacto-ravsoja__grid-fondo {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(33, 42, 81, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(33, 42, 81, 0.045) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 85%,
+    transparent
+  );
+}
+
+.contacto-ravsoja__orb {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.contacto-ravsoja__orb--uno {
+  top: 10%;
+  right: -6rem;
+  width: 18rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(29, 116, 141, 0.2);
+  box-shadow:
+    inset 0 0 70px rgba(29, 116, 141, 0.09),
+    0 0 80px rgba(29, 116, 141, 0.07);
+}
+
+.contacto-ravsoja__orb--dos {
+  bottom: 12%;
+  left: -5rem;
+  width: 13rem;
+  aspect-ratio: 1;
+  background: rgba(201, 188, 164, 0.2);
+  filter: blur(30px);
+}
+
+/* Encabezado */
+
+.contacto-ravsoja__encabezado {
+  max-width: 880px;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+
+.contacto-ravsoja__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.3rem;
+  color: var(--rav-blue);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.contacto-ravsoja__eyebrow::before,
+.contacto-ravsoja__eyebrow::after {
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.contacto-ravsoja__titulo {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--rav-navy);
+  font-size: clamp(2.25rem, 5.6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.contacto-ravsoja__titulo span {
+  color: var(--rav-blue);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.contacto-ravsoja__descripcion {
+  max-width: 700px;
+  margin: 1.8rem auto 0;
+  color: var(--rav-muted);
+  font-size: clamp(1rem, 1.5vw, 1.13rem);
+  line-height: 1.8;
+  text-wrap: balance;
+}
+
+/* Tarjetas de contacto */
+
+.contacto-ravsoja__tarjetas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.contacto-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 170px;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.6rem;
+  overflow: hidden;
+  border: 1px solid rgba(33, 42, 81, 0.1);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 18px 55px rgba(33, 42, 81, 0.07);
+  color: inherit;
+  text-decoration: none;
+  backdrop-filter: blur(15px);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+a.contacto-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(29, 116, 141, 0.25);
+  box-shadow: 0 25px 65px rgba(33, 42, 81, 0.13);
+}
+
+.contacto-card--destacada {
+  color: #fff;
+  border-color: transparent;
+  background:
+    linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.1),
+      transparent 45%
+    ),
+    var(--rav-navy);
+}
+
+.contacto-card--destacada::after {
+  position: absolute;
+  right: -45px;
+  bottom: -70px;
+  width: 150px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(29, 116, 141, 0.6);
+  content: "";
+}
+
+.contacto-card__icono {
+  display: grid;
+  flex: 0 0 45px;
+  width: 45px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(29, 116, 141, 0.1);
+  color: var(--rav-blue);
+}
+
+.contacto-card--destacada .contacto-card__icono {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.contacto-card__icono svg {
+  width: 21px;
+  height: 21px;
+}
+
+.contacto-card__contenido {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.contacto-card__contenido small {
+  margin-bottom: 0.45rem;
+  color: var(--rav-blue);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.contacto-card--destacada .contacto-card__contenido small {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.contacto-card__contenido strong {
+  overflow-wrap: anywhere;
+  color: var(--rav-navy);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.contacto-card--destacada .contacto-card__contenido strong {
+  color: #fff;
+}
+
+.contacto-card__contenido > span {
+  margin-top: 0.55rem;
+  color: var(--rav-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.contacto-card--destacada .contacto-card__contenido > span {
+  color: rgba(255, 255, 255, 0.67);
+}
+
+.contacto-card__flecha {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 2;
+  display: grid;
+  width: 35px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contacto-card__flecha svg {
+  width: 16px;
+}
+
+/* Contenido principal */
+
+.contacto-ravsoja__contenido {
+  display: grid;
+  grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr);
+  gap: clamp(1.3rem, 3vw, 2.4rem);
+  align-items: stretch;
+}
+
+.contacto-ravsoja__mapa,
+.contacto-ravsoja__formulario {
+  min-width: 0;
+  border: 1px solid rgba(33, 42, 81, 0.1);
+  border-radius: clamp(25px, 3vw, 38px);
+  box-shadow: 0 30px 80px rgba(33, 42, 81, 0.1);
+}
+
+/* Mapa */
+
+.contacto-ravsoja__mapa {
+  display: flex;
+  min-height: 640px;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--rav-navy);
+}
+
+.contacto-ravsoja__mapa-visual {
+  position: relative;
+  flex: 1;
+  min-height: 440px;
+  overflow: hidden;
+  background: #dadada;
+}
+
+.contacto-ravsoja__mapa-visual::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 25%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(33, 42, 81, 0.35)
+  );
+  pointer-events: none;
+  content: "";
+}
+
+.contacto-ravsoja__mapa-visual iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  border: 0;
+  filter: saturate(0.75) contrast(1.04);
+}
+
+.contacto-ravsoja__mapa-info {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.7rem;
+  color: #fff;
+}
+
+.contacto-ravsoja__mapa-icono {
+  display: grid;
+  width: 48px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.contacto-ravsoja__mapa-icono svg {
+  width: 22px;
+}
+
+.contacto-ravsoja__mapa-info span {
+  color: var(--rav-sand);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contacto-ravsoja__mapa-info h3 {
+  margin: 0.25rem 0;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.contacto-ravsoja__mapa-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.contacto-ravsoja__mapa-info > a {
+  display: grid;
+  width: 42px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  color: #fff;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.contacto-ravsoja__mapa-info > a:hover {
+  transform: rotate(45deg);
+  background: var(--rav-blue);
+}
+
+.contacto-ravsoja__mapa-info > a svg {
+  width: 17px;
+}
+
+/* Formulario */
+
+.contacto-ravsoja__formulario {
+  padding: clamp(1.7rem, 4vw, 3.6rem);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+}
+
+.contacto-ravsoja__formulario-header {
+  margin-bottom: 2rem;
+}
+
+.contacto-ravsoja__formulario-header > span {
+  color: var(--rav-blue);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.contacto-ravsoja__formulario-header h3 {
+  margin: 0.65rem 0 0.8rem;
+  color: var(--rav-navy);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.contacto-ravsoja__formulario-header p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--rav-muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.contacto-ravsoja__formulario form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.contacto-ravsoja__fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contacto-ravsoja__formulario label {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contacto-ravsoja__formulario label > span {
+  color: var(--rav-navy);
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.contacto-ravsoja__formulario input,
+.contacto-ravsoja__formulario select,
+.contacto-ravsoja__formulario textarea {
+  width: 100%;
+  border: 1px solid rgba(33, 42, 81, 0.12);
+  border-radius: 15px;
+  outline: none;
+  background: #f7f7f8;
+  color: var(--rav-ink);
+  font: inherit;
+  font-size: 0.88rem;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.contacto-ravsoja__formulario input,
+.contacto-ravsoja__formulario select {
+  min-height: 52px;
+  padding: 0 1rem;
+}
+
+.contacto-ravsoja__formulario textarea {
+  min-height: 125px;
+  padding: 1rem;
+  resize: vertical;
+}
+
+.contacto-ravsoja__formulario input:focus,
+.contacto-ravsoja__formulario select:focus,
+.contacto-ravsoja__formulario textarea:focus {
+  border-color: rgba(29, 116, 141, 0.65);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(29, 116, 141, 0.08);
+}
+
+.contacto-ravsoja__formulario input::placeholder,
+.contacto-ravsoja__formulario textarea::placeholder {
+  color: #9a9ca5;
+}
+
+.contacto-ravsoja__boton {
+  display: flex;
+  min-height: 58px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  padding: 0.45rem 0.55rem 0.45rem 1.4rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  background: var(--rav-navy);
+  box-shadow: 0 15px 30px rgba(33, 42, 81, 0.2);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.87rem;
+  font-weight: 700;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contacto-ravsoja__boton:hover {
+  transform: translateY(-3px);
+  background: var(--rav-blue);
+  box-shadow: 0 20px 35px rgba(29, 116, 141, 0.25);
+}
+
+.contacto-ravsoja__boton-icono {
+  display: grid;
+  width: 46px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.contacto-ravsoja__boton-icono svg {
+  width: 19px;
+}
+
+.contacto-ravsoja__estado {
+  margin: 0;
+  color: var(--rav-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* =========================================================
+   CONTACTO RESPONSIVE — CELULAR
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .contacto-ravsoja {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .contacto-ravsoja__container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-sizing: border-box;
+  }
+
+  /* Una tarjeta por fila */
+  .contacto-ravsoja__tarjetas {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contacto-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 142px;
+
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .contacto-card__contenido {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .contacto-card__contenido small,
+  .contacto-card__contenido strong,
+  .contacto-card__contenido > span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .contacto-card__icono {
+    flex-shrink: 0;
+  }
+
+  .contacto-card__flecha {
+    flex-shrink: 0;
+  }
+
+  /* Mapa y formulario en una sola columna */
+  .contacto-ravsoja__contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    width: 100%;
+  }
+
+  .contacto-ravsoja__mapa,
+  .contacto-ravsoja__formulario {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .contacto-ravsoja__fila {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .contacto-ravsoja__tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contacto-ravsoja__privacidad {
+  margin: 2px 0 0;
+  color: rgba(13, 27, 41, 0.62);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.contacto-ravsoja__privacidad a {
+  color: #2457a7;
+  font-weight: 600;
+}

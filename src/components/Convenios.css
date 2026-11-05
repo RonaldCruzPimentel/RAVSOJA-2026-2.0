@@ -1,0 +1,31 @@
+/* The sole rendering of alliances lives inside the home hero. */
+.hero-convenios {scroll-margin-top:130px}
+.hero-convenios__heading {display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px}
+.hero-convenios h2 {margin:0;text-align:center;font-size:10px;line-height:1.6;font-weight:500;letter-spacing:.16em;color:var(--hero-muted)}
+.hero-convenios__pause {display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--hero-muted);cursor:pointer}
+.hero-convenios__pause:hover {background:var(--hero-edge)}
+.hero-convenios__viewport {overflow:hidden;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--hero-edge) transparent;border-radius:10px}
+/* Equal groups include the trailing gap, so the loop joins without a jump. */
+.hero-convenios__track {display:flex;width:max-content;animation:hero-convenios-loop var(--convenios-duration,48s) linear infinite}
+.hero-convenios__list {display:flex;flex-shrink:0;align-items:center;gap:40px;margin:0;padding:12px 40px 12px 0;list-style:none}
+.hero-convenios__list .hero-convenios__item {flex:0 0 120px;width:120px}
+@keyframes hero-convenios-loop {to {transform:translateX(-50%)}}
+.hero-convenios__viewport[data-paused="true"] .hero-convenios__track,
+.hero-convenios__viewport:focus-within .hero-convenios__track,
+.hero-convenios__viewport:active .hero-convenios__track {animation-play-state:paused}
+@media(hover:hover) {.hero-convenios__viewport:hover .hero-convenios__track {animation-play-state:paused}}
+.hero-convenios__item {display:flex;align-items:center;justify-content:center;min-width:0;height:84px}
+.hero-convenios__item img {display:block;width:100%;height:100%;object-fit:contain}
+:root[data-rav-theme="dark"] .hero-convenios__viewport {background:#f6f6f4}
+@media(max-width:600px) {
+  .hero-convenios h2 {font-size:9px;letter-spacing:.1em}
+  .hero-convenios__heading {gap:0;margin-bottom:10px}
+  .hero-convenios__list {gap:26px;padding:10px 26px 10px 0}
+  .hero-convenios__list .hero-convenios__item {flex-basis:110px;width:110px}
+  .hero-convenios__item {height:76px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .hero-convenios__track {animation:none}
+  .hero-convenios__viewport {overflow-x:auto}
+  .hero-convenios__list[aria-hidden="true"], .hero-convenios__pause {display:none}
+}

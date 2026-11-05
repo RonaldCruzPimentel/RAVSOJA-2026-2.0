@@ -1,0 +1,1022 @@
+/* =========================================================
+   EXPERIENCIAS RAVSOJA
+========================================================= */
+
+.experiencias {
+  --exp-azul: #212a51;
+  --exp-azul-profundo: #17203f;
+  --exp-azul-claro: #1d748d;
+  --exp-beige: #f0e9d9;
+  --exp-beige-oscuro: #c9bca4;
+  --exp-dorado: #b49b7c;
+  --exp-blanco: #f7f6f4;
+  --exp-texto: #4c4b50;
+  --exp-borde: rgba(33, 42, 81, 0.13);
+  --exp-sombra: 0 24px 60px rgba(20, 27, 55, 0.11);
+
+  position: relative;
+  width: 100%;
+  padding: 110px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 8% 15%,
+      rgba(29, 116, 141, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 80%,
+      rgba(180, 155, 124, 0.1),
+      transparent 25%
+    ),
+    var(--exp-blanco);
+}
+
+/* Elementos decorativos del fondo */
+
+.experiencias::before,
+.experiencias::after {
+  position: absolute;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.experiencias::before {
+  top: 160px;
+  left: -120px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(29, 116, 141, 0.12);
+}
+
+.experiencias::after {
+  right: -170px;
+  bottom: 140px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(180, 155, 124, 0.2);
+}
+
+.experiencias__contenedor {
+  position: relative;
+  z-index: 1;
+  width: min(1440px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.experiencias__encabezado {
+  max-width: 800px;
+  margin-bottom: 46px;
+}
+
+.experiencias__etiqueta,
+.graduaciones__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: var(--exp-azul-claro);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.18em;
+}
+
+.experiencias__etiqueta::before,
+.graduaciones__etiqueta::before {
+  width: 34px;
+  height: 1px;
+  content: "";
+  background: currentColor;
+}
+
+.experiencias__titulo,
+.graduaciones__titulo {
+  margin: 0;
+  color: var(--exp-azul);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5vw, 5.3rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.experiencias__titulo span,
+.graduaciones__titulo span {
+  color: var(--exp-dorado);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.experiencias__descripcion {
+  max-width: 720px;
+  margin: 25px 0 0;
+  color: var(--exp-texto);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.75;
+}
+
+/* =========================================================
+   TARJETAS DE TESTIMONIOS
+========================================================= */
+
+.testimonios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.testimonio-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--exp-borde);
+  border-radius: 26px;
+  box-shadow: 0 16px 40px rgba(24, 31, 59, 0.07);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.testimonio-card:hover {
+  border-color: rgba(29, 116, 141, 0.32);
+  box-shadow: var(--exp-sombra);
+  transform: translateY(-8px);
+}
+
+/* Portada */
+
+.testimonio-card__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--exp-azul);
+  border: 0;
+  cursor: pointer;
+}
+
+.testimonio-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.5s ease;
+}
+
+.testimonio-card:hover .testimonio-card__media img {
+  filter: brightness(0.82);
+  transform: scale(1.055);
+}
+
+.testimonio-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 17, 41, 0.04) 20%,
+      rgba(10, 17, 41, 0.5) 100%
+    );
+  transition: background 0.4s ease;
+}
+
+.testimonio-card:hover .testimonio-card__overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 17, 41, 0.08) 10%,
+      rgba(10, 17, 41, 0.6) 100%
+    );
+}
+
+/* Etiqueta Video */
+
+.testimonio-card__tipo {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 15px;
+  color: var(--exp-azul);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  background: rgba(247, 246, 244, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+/* Botón play */
+
+.testimonio-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  display: grid;
+  width: 70px;
+  height: 70px;
+  color: var(--exp-azul);
+  background: rgba(247, 246, 244, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  place-items: center;
+  box-shadow: 0 15px 35px rgba(12, 20, 47, 0.25);
+  backdrop-filter: blur(8px);
+  transform: translate(-50%, -50%);
+  transition:
+    color 0.35s ease,
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.testimonio-card__play::before {
+  position: absolute;
+  inset: -9px;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  animation: experienciasPulso 2.2s ease-out infinite;
+}
+
+.testimonio-card__play svg {
+  width: 34px;
+  height: 34px;
+  margin-left: 4px;
+}
+
+.testimonio-card__media:hover .testimonio-card__play {
+  color: #ffffff;
+  background: var(--exp-azul-claro);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* Contenido de tarjeta */
+
+.testimonio-card__contenido {
+  min-height: 225px;
+  padding: 28px 26px 30px;
+}
+
+.testimonio-card__contenido h3 {
+  margin: 0;
+  color: var(--exp-azul);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 1.55vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.testimonio-card__datos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 0 0;
+  color: #777279;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.testimonio-card__datos span {
+  color: var(--exp-dorado);
+}
+
+.testimonio-card blockquote {
+  position: relative;
+  margin: 21px 0 0;
+  padding-top: 20px;
+  color: var(--exp-texto);
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 1.65;
+  border-top: 1px solid rgba(33, 42, 81, 0.1);
+}
+
+/* =========================================================
+   GRADUACIONES
+========================================================= */
+
+.graduaciones {
+  margin-top: 130px;
+}
+
+.graduaciones__encabezado {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  align-items: end;
+  gap: 60px;
+  margin-bottom: 44px;
+}
+
+.graduaciones__titulo {
+  font-size: clamp(2.7rem, 4.7vw, 5rem);
+}
+
+.graduaciones__descripcion {
+  max-width: 530px;
+  margin: 0 0 6px auto;
+  color: var(--exp-texto);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.graduaciones__galeria {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.45fr);
+  gap: 22px;
+}
+
+.graduaciones__principal {
+  position: relative;
+  min-width: 0;
+}
+
+.graduaciones__imagen-principal {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 590px;
+  padding: 0;
+  overflow: hidden;
+  background: var(--exp-azul);
+  border: 0;
+  border-radius: 30px;
+  box-shadow: var(--exp-sombra);
+  cursor: zoom-in;
+}
+
+.graduaciones__imagen-principal img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: experienciasAparecer 0.65s ease both;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.graduaciones__imagen-principal:hover img {
+  transform: scale(1.035);
+}
+
+.graduaciones__sombra {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 18, 42, 0.03) 25%,
+      rgba(12, 18, 42, 0.84) 100%
+    );
+}
+
+.graduaciones__informacion {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: 42px 42px 38px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.graduaciones__informacion > span {
+  display: block;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.graduaciones__informacion h3 {
+  max-width: 680px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.3vw, 3.7rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.graduaciones__informacion p {
+  max-width: 620px;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* Flechas */
+
+.graduaciones__controles {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+}
+
+.graduaciones__controles button {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  color: var(--exp-azul);
+  background: rgba(247, 246, 244, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 50%;
+  cursor: pointer;
+  place-items: center;
+  box-shadow: 0 10px 25px rgba(11, 18, 43, 0.18);
+  backdrop-filter: blur(8px);
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.graduaciones__controles button:hover {
+  color: #ffffff;
+  background: var(--exp-azul-claro);
+  transform: translateY(-3px);
+}
+
+.graduaciones__controles svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Miniaturas */
+
+.graduaciones__miniaturas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  min-height: 590px;
+}
+
+.graduaciones__miniatura {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--exp-azul);
+  border: 2px solid transparent;
+  border-radius: 22px;
+  cursor: pointer;
+  opacity: 0.72;
+  transition:
+    opacity 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.graduaciones__miniatura:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.graduaciones__miniatura--activa {
+  border-color: var(--exp-azul-claro);
+  box-shadow: 0 14px 30px rgba(29, 116, 141, 0.2);
+  opacity: 1;
+}
+
+.graduaciones__miniatura img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.graduaciones__miniatura:hover img,
+.graduaciones__miniatura--activa img {
+  transform: scale(1.05);
+}
+
+.graduaciones__miniatura::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(11, 18, 43, 0.6) 100%
+    );
+}
+
+.graduaciones__miniatura span {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   MODALES
+========================================================= */
+
+.experiencias-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  padding: 30px;
+  overflow-y: auto;
+  background: rgba(8, 12, 30, 0.88);
+  backdrop-filter: blur(14px);
+  place-items: center;
+  animation: experienciasModalEntrada 0.35s ease both;
+}
+
+.experiencias-modal__contenido {
+  position: relative;
+  width: min(1050px, 100%);
+  overflow: hidden;
+  background: var(--exp-blanco);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+  animation: experienciasContenidoEntrada 0.4s ease both;
+}
+
+.experiencias-modal__cerrar {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 5;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  padding: 0 0 4px;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  background: rgba(12, 18, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  cursor: pointer;
+  place-items: center;
+  backdrop-filter: blur(10px);
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.experiencias-modal__cerrar:hover {
+  background: var(--exp-azul-claro);
+  transform: rotate(90deg);
+}
+
+.experiencias-modal__video {
+  width: 100%;
+  background: #000000;
+  aspect-ratio: 16 / 9;
+}
+
+.experiencias-modal__video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000000;
+}
+
+.experiencias-modal__informacion {
+  padding: 27px 32px 30px;
+}
+
+.experiencias-modal__informacion > span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--exp-azul-claro);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.experiencias-modal__informacion h3 {
+  margin: 0;
+  color: var(--exp-azul);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.experiencias-modal__informacion p {
+  margin: 10px 0 0;
+  color: var(--exp-texto);
+  font-size: 0.98rem;
+}
+
+/* Modal de fotografía */
+
+.experiencias-modal--foto {
+  cursor: zoom-out;
+}
+
+.experiencias-modal__foto {
+  position: relative;
+  display: flex;
+  width: min(1320px, 100%);
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+  background: #0b1026;
+  border-radius: 26px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+  animation: experienciasContenidoEntrada 0.4s ease both;
+}
+
+.experiencias-modal__foto img {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 60px);
+  object-fit: contain;
+}
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.testimonio-card__media:focus-visible,
+.graduaciones__imagen-principal:focus-visible,
+.graduaciones__miniatura:focus-visible,
+.graduaciones__controles button:focus-visible,
+.experiencias-modal__cerrar:focus-visible {
+  outline: 3px solid var(--exp-azul-claro);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes experienciasPulso {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.82);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(1.28);
+  }
+}
+
+@keyframes experienciasAparecer {
+  from {
+    opacity: 0.35;
+    transform: scale(1.025);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes experienciasModalEntrada {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes experienciasContenidoEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .experiencias {
+    padding: 90px 0;
+  }
+
+  .experiencias__contenedor {
+    width: min(100% - 44px, 1100px);
+  }
+
+  .testimonios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .testimonio-card:last-child {
+    grid-column: span 2;
+    width: calc(50% - 12px);
+    justify-self: center;
+  }
+
+  .graduaciones {
+    margin-top: 105px;
+  }
+
+  .graduaciones__encabezado {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .graduaciones__descripcion {
+    margin-left: 0;
+  }
+
+  .graduaciones__galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .graduaciones__imagen-principal {
+    min-height: 540px;
+  }
+
+  .graduaciones__miniaturas {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: none;
+    min-height: 150px;
+  }
+}
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 700px) {
+  .experiencias {
+    padding: 72px 0;
+  }
+
+  .experiencias__contenedor {
+    width: calc(100% - 32px);
+  }
+
+  .experiencias__encabezado {
+    margin-bottom: 30px;
+  }
+
+  .experiencias__etiqueta,
+  .graduaciones__etiqueta {
+    font-size: 0.66rem;
+    line-height: 1.35;
+    letter-spacing: 0.14em;
+  }
+
+  .experiencias__titulo,
+  .graduaciones__titulo {
+    font-size: clamp(2.7rem, 14vw, 4.2rem);
+    line-height: 0.98;
+  }
+
+  .experiencias__descripcion {
+    margin-top: 20px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  /* Carrusel horizontal de testimonios */
+
+  .testimonios {
+    display: flex;
+    gap: 16px;
+    margin-right: -16px;
+    padding-right: 16px;
+    padding-bottom: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .testimonios::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonio-card,
+  .testimonio-card:last-child {
+    flex: 0 0 87%;
+    width: auto;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .testimonio-card:hover {
+    transform: none;
+  }
+
+  .testimonio-card__play {
+    width: 58px;
+    height: 58px;
+  }
+
+  .testimonio-card__play svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  .testimonio-card__contenido {
+    min-height: auto;
+    padding: 23px 21px 25px;
+  }
+
+  .testimonio-card__contenido h3 {
+    font-size: 1.35rem;
+  }
+
+  .testimonio-card blockquote {
+    font-size: 0.95rem;
+  }
+
+  /* Graduaciones */
+
+  .graduaciones {
+    margin-top: 80px;
+  }
+
+  .graduaciones__encabezado {
+    margin-bottom: 29px;
+  }
+
+  .graduaciones__descripcion {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .graduaciones__galeria {
+    gap: 14px;
+  }
+
+  .graduaciones__imagen-principal {
+    min-height: 490px;
+    border-radius: 23px;
+  }
+
+  .graduaciones__informacion {
+    padding: 28px 22px 88px;
+  }
+
+  .graduaciones__informacion h3 {
+    font-size: 2rem;
+  }
+
+  .graduaciones__informacion p {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .graduaciones__controles {
+    right: auto;
+    bottom: 23px;
+    left: 22px;
+  }
+
+  .graduaciones__controles button {
+    width: 47px;
+    height: 47px;
+  }
+
+  .graduaciones__miniaturas {
+    display: flex;
+    min-height: 0;
+    padding-bottom: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .graduaciones__miniaturas::-webkit-scrollbar {
+    display: none;
+  }
+
+  .graduaciones__miniatura {
+    flex: 0 0 115px;
+    height: 105px;
+    border-radius: 16px;
+    scroll-snap-align: start;
+  }
+
+  /* Modales */
+
+  .experiencias-modal {
+    padding: 14px;
+  }
+
+  .experiencias-modal__contenido {
+    border-radius: 20px;
+  }
+
+  .experiencias-modal__cerrar {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .experiencias-modal__informacion {
+    padding: 22px 20px 24px;
+  }
+
+  .experiencias-modal__foto {
+    max-height: calc(100vh - 28px);
+    border-radius: 18px;
+  }
+
+  .experiencias-modal__foto img {
+    max-height: calc(100vh - 28px);
+  }
+}
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+========================================================= */
+
+@media (max-width: 420px) {
+  .experiencias__contenedor {
+    width: calc(100% - 24px);
+  }
+
+  .testimonio-card {
+    flex-basis: 92%;
+  }
+
+  .graduaciones__imagen-principal {
+    min-height: 450px;
+  }
+
+  .graduaciones__informacion h3 {
+    font-size: 1.75rem;
+  }
+
+  .graduaciones__miniatura {
+    flex-basis: 98px;
+    height: 92px;
+  }
+}
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonio-card,
+  .testimonio-card__media img,
+  .testimonio-card__play,
+  .graduaciones__imagen-principal img,
+  .graduaciones__miniatura,
+  .graduaciones__miniatura img,
+  .graduaciones__controles button,
+  .experiencias-modal,
+  .experiencias-modal__contenido,
+  .experiencias-modal__foto {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .testimonio-card__play::before {
+    display: none;
+  }
+}

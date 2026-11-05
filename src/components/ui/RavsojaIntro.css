@@ -1,0 +1,14 @@
+.rav-intro {position:fixed;inset:0;z-index:100000;display:grid;place-items:center;min-height:100dvh;background:#f8fafd;color:#212a51;font-family:"TT Fors",Arial,sans-serif;opacity:1;transition:opacity .35s ease;isolation:isolate}
+.rav-intro--leaving {opacity:0}
+.rav-intro__center {display:flex;flex-direction:column;align-items:center;width:100%;padding:24px 16px 64px}
+.rav-intro__glass {position:relative;isolation:isolate;display:grid;place-items:center;width:min(380px,86vw,65dvh);aspect-ratio:1;overflow:hidden;background:#f8fafd}
+.rav-intro__glass canvas {position:absolute;inset:0;width:100%;height:100%;display:block}
+.rav-intro__fallback {display:block;width:70%;height:70%;object-fit:contain;animation:rav-intro-fade .25s ease both}
+.rav-intro__caption {text-align:center;animation:rav-intro-fade .4s .25s ease both;padding-inline:12px}
+.rav-intro__caption p {margin:0;font-size:clamp(10px,2.8vw,12px);font-weight:500;letter-spacing:.13em;line-height:1.7}
+.rav-intro__caption span {display:block;margin-top:8px;font-size:9px;letter-spacing:.2em;color:#596882}
+.rav-intro__skip {position:absolute;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:14px;min-height:44px;padding:10px 16px;border:1px solid #212a5126;border-radius:999px;background:#ffffff80;color:#212a51;font:inherit;font-size:12px;cursor:pointer;animation:rav-intro-fade .3s ease both}
+.rav-intro__skip:hover {background:#e9edf5}
+.rav-intro__skip:focus-visible {outline:3px solid #557bb4;outline-offset:4px}
+@keyframes rav-intro-fade {from {opacity:0} to {opacity:1}}
+@media(prefers-reduced-motion:reduce) {.rav-intro {transition:opacity .08s}.rav-intro__caption,.rav-intro__fallback,.rav-intro__skip {animation:none}}

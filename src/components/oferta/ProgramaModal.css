@@ -1,0 +1,121 @@
+/* Scoped modal presentation; catalogue cards and academic data are unchanged. */
+.rv-offer-modal.rv-offer-modal--editorial {
+  --modal-paper:#faf9f7; --modal-surface:#fff; --modal-ink:#161b30; --modal-muted:#596174;
+  --modal-line:color-mix(in srgb,var(--modal-accent) 16%,transparent);
+  --modal-tint:color-mix(in srgb,var(--modal-accent) 6%,var(--modal-paper));
+  --modal-highlight:var(--modal-accent);
+  --brand:var(--modal-accent); --brand-dark:var(--modal-accent);
+  --brand-soft:var(--modal-accent); --rv-ink:var(--modal-ink); --rv-muted:var(--modal-muted);
+  --ink:var(--modal-ink); --muted:var(--modal-muted);
+  padding:24px; background:rgba(9,15,30,.65); backdrop-filter:blur(8px);
+  color:var(--modal-ink); font-family:"TT Fors",Arial,sans-serif;
+}
+:root[data-rav-theme="dark"] .rv-offer-modal.rv-offer-modal--editorial {
+  --modal-paper:#131e30; --modal-surface:#1c293f; --modal-ink:#f0f3fa; --modal-muted:#bdc8d9;
+  --modal-line:rgba(208,222,243,.17); --modal-tint:#1c293f;
+  --modal-highlight:color-mix(in srgb,var(--modal-accent) 30%,#fff);
+}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__dialog {
+  display:flex;flex-direction:column;width:min(1160px,100%);height:min(860px,calc(100dvh - 48px));
+  max-height:none;overflow:visible;border:1px solid var(--modal-line);border-radius:28px;
+  background:var(--modal-paper);color:var(--modal-ink);
+}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__toolbar {
+  display:flex;flex-shrink:0;align-items:center;justify-content:space-between;gap:12px;
+  min-height:56px;padding:6px 12px 6px 28px;border-bottom:1px solid var(--modal-line);
+}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__toolbar > span {font-size:11px;color:var(--modal-muted);letter-spacing:.04em;line-height:1.4}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__toolbar > span > span {margin-inline:8px;opacity:.5}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__close {position:relative;top:auto;right:auto;flex-shrink:0;width:44px;height:44px;background:var(--modal-surface);border:1px solid var(--modal-line);backdrop-filter:none}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__close span {background:var(--modal-ink)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__close:hover {transform:rotate(90deg);background:var(--modal-tint)}
+/* This is the only vertical scroller. The toolbar and hint never overlay it. */
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__scroll {
+  flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+  scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;
+  border-radius:0 0 28px 28px;scroll-padding-top:78px;
+}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__scroll::-webkit-scrollbar {display:none;width:0;height:0}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero {
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,3vw,44px);
+  min-height:min(640px,calc(100dvh - 100px));align-items:center;padding:28px 36px 36px;
+  background:radial-gradient(ellipse at 0% 20%,var(--modal-tint),transparent 65%),var(--modal-paper);
+}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-image {
+  height:auto;min-height:0;align-self:center;overflow:visible;
+  padding:14px;border:1px solid var(--modal-line);border-radius:20px;background:var(--modal-tint);
+}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-image img {
+  display:block;width:100%;height:auto;max-height:min(520px,64dvh);object-fit:contain;
+  object-position:center;border-radius:10px;background:transparent;
+}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-image .is-logo {padding:30px;max-height:340px}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-content {padding:0;min-width:0;display:flex;gap:0;background:none;color:var(--modal-ink)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__eyebrow {display:flex;align-items:center;gap:10px;margin:0 0 16px;color:var(--modal-highlight);font-size:12px;letter-spacing:.07em;line-height:1.4;font-weight:500}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__eyebrow img {width:36px;height:36px;object-fit:contain;padding:4px;border-radius:50%;background:#fff;flex-shrink:0}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-content h2 {max-width:none;font-size:clamp(32px,3.2vw,46px);line-height:1.1;font-weight:500;letter-spacing:-.04em;color:var(--modal-ink);text-wrap:balance;overflow-wrap:normal;word-break:normal;hyphens:none}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero[data-long-title] h2 {font-size:clamp(30px,2.65vw,38px);line-height:1.14}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-description {margin:18px 0 0;max-width:58ch;font-size:14px;line-height:1.65;color:var(--modal-muted);text-wrap:pretty}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__facts {grid-template-columns:1.3fr .85fr 1fr;gap:0;margin-top:22px;border-color:var(--modal-line)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__fact {min-width:0;min-height:0;padding:14px 12px;border-right:1px solid var(--modal-line);border-bottom:0}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__fact:first-child {padding-left:0}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__fact:last-child {border-right:0;padding-right:0}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__fact span {font-size:9px;letter-spacing:.12em;color:var(--modal-muted);margin-bottom:6px}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__fact strong {display:block;font-size:12px;line-height:1.5;font-weight:500;color:var(--modal-ink)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__cta {margin-top:22px;min-height:50px;min-width:240px;padding:6px 6px 6px 22px;background:var(--modal-accent);color:#fff;font-size:14px;font-weight:500}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__cta-arrow {width:38px;height:38px;background:#fff;color:var(--modal-accent)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__cta-arrow svg {transition:transform .2s ease}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__cta:hover {transform:translateY(-2px);box-shadow:0 6px 20px var(--modal-line)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__cta:hover svg {transform:rotate(-35deg)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__cta:active {transform:scale(.98)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__tabs-wrapper {top:0;padding:10px 16px;background:var(--modal-paper);border-color:var(--modal-line);box-shadow:0 5px 18px #00000005;z-index:2}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__tabs {width:100%;padding:3px;margin:0;gap:8px;scrollbar-width:none}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__tabs button {min-height:44px;padding:10px 20px;box-shadow:none;background:var(--modal-surface);border-color:var(--modal-line);color:var(--modal-muted);font-size:13px}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__tabs button.active {background:var(--modal-accent);color:#fff;border-color:var(--modal-accent);box-shadow:none;transform:none}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__content {width:calc(100% - 72px);min-height:440px;padding:36px 0 56px;overflow-wrap:break-word}
+.rv-offer-modal.rv-offer-modal--editorial :is(.rv-offer-info-card,.rv-offer-program-summary,.rv-offer-curriculum__item,.rv-offer-teacher-profile,.rv-offer-calendar-row,.rv-offer-program-placeholder) {background:var(--modal-surface);border-color:var(--modal-line);color:var(--modal-ink)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__section-eyebrow {color:var(--modal-highlight)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-download-btn {background:var(--modal-accent);color:#fff}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-curriculum__item {transition:transform .2s ease,background .2s ease;border-color:var(--modal-line)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-curriculum__item:hover {transform:translateY(-2px);background:var(--modal-tint)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-curriculum__arrow {transition:transform .2s ease}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-curriculum__item:hover .rv-offer-curriculum__arrow {transform:translate(2px,-2px)}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-teacher-profile[open] .rv-offer-teacher-profile__content {animation:rv-modal-teacher-reveal .25s ease}
+@keyframes rv-modal-teacher-reveal {from {opacity:0;transform:translateY(-4px)} to {opacity:1;transform:none}}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__explore-slot {display:grid;place-items:center;flex-shrink:0;height:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease, height .18s ease, visibility .18s ease;border-radius:0 0 28px 28px}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__explore-slot[data-visible="true"] {height:62px;opacity:1;visibility:visible;pointer-events:auto;transition:opacity .3s .45s ease, height .18s ease}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__explore {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px;padding:4px 24px;border:0;border-radius:14px;background:transparent;color:var(--modal-highlight);font-size:10px;letter-spacing:.13em;cursor:pointer}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__explore svg {animation:rv-modal-explore 2.4s ease-in-out infinite}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__explore-slot:not([data-visible="true"]) svg {animation:none}
+@keyframes rv-modal-explore {0%,25%,75%,100% {transform:translateY(0)} 50% {transform:translateY(6px)}}
+.rv-offer-modal.rv-offer-modal--editorial :is(a,button,summary,[tabindex]):focus-visible {outline:3px solid var(--modal-highlight);outline-offset:3px}
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__scroll:focus-visible {outline-offset:-3px}
+@media(max-width:850px) {
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero {grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px;padding:24px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-content h2,.rv-offer-modal--editorial .rv-offer-modal__hero[data-long-title] h2 {font-size:30px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__facts {grid-template-columns:1fr 1fr;gap:12px;padding:14px 0}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__fact {padding:0;border:0}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__fact:first-child {grid-column:1/-1}
+}
+@media(max-width:650px) {
+  .rv-offer-modal.rv-offer-modal--editorial {padding:8px;padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__dialog {height:calc(100dvh - max(8px,env(safe-area-inset-top)) - max(8px,env(safe-area-inset-bottom)));border-radius:22px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__toolbar {padding-left:16px;min-height:54px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero {grid-template-columns:minmax(0,1fr);gap:24px;padding:16px 18px 28px;min-height:0}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-image {width:100%;max-width:340px;margin-inline:auto;padding:10px;border-radius:16px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-image img {height:auto;max-height:310px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-image .is-logo {max-height:220px;padding:24px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-content h2,.rv-offer-modal--editorial .rv-offer-modal__hero[data-long-title] h2 {font-size:clamp(27px,7.4vw,33px);line-height:1.13}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-description {font-size:14px;margin-top:16px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__eyebrow {margin-bottom:14px;font-size:11px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__cta {width:100%;min-width:0}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__tabs-wrapper {padding:8px 10px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__tabs {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;overflow:visible;padding:3px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__tabs button {padding:8px 5px;font-size:12px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__content {width:calc(100% - 36px);padding:28px 0 36px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__scroll {scroll-padding-top:120px;border-radius:0 0 22px 22px}
+  .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__explore-slot[data-visible="true"] {height:58px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .rv-offer-modal.rv-offer-modal--editorial *, .rv-offer-modal.rv-offer-modal--editorial *::before {animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}

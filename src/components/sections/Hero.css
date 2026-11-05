@@ -1,0 +1,58 @@
+.rav-hero {
+  --hero-surface:#fdfcf9; --hero-ink:#0b1026; --hero-accent:#212a51; --hero-muted:#566078;
+  --hero-edge:rgba(33,42,81,.2); --hero-blue:rgba(187,211,237,.5); --hero-cream:rgba(245,222,183,.38);
+  position:relative; isolation:isolate; overflow:hidden; display:flex; flex-direction:column; justify-content:center;
+  min-height:min(900px,100svh); padding:clamp(150px,21vh,210px) 24px 66px;
+  color:var(--hero-ink); background:linear-gradient(to bottom,var(--hero-surface) 80%,#fff);
+  font-family:"TT Fors",Arial,sans-serif;
+}
+:root[data-rav-theme="dark"] .rav-hero {
+  --hero-surface:#101827; --hero-ink:#f2f4fb; --hero-accent:#c6d4f3; --hero-muted:#bbc7d9;
+  --hero-edge:rgba(205,221,246,.27); --hero-blue:rgba(63,96,145,.3); --hero-cream:rgba(154,130,107,.13);
+  background:var(--hero-surface);
+}
+.rav-hero__ambient {
+  position:absolute; z-index:-1; inset:0 -8% 10%; pointer-events:none;
+  background:radial-gradient(ellipse at 12% 52%,var(--hero-blue),transparent 53%),radial-gradient(ellipse at 88% 42%,var(--hero-cream),transparent 51%);
+  animation:rav-hero-ambient 24s ease-in-out infinite alternate;
+}
+@keyframes rav-hero-ambient { from {transform:translate3d(-2%,-1%,0) scale(1)} to {transform:translate3d(2%,3%,0) scale(1.08)} }
+.rav-hero__content {position:relative;width:min(1100px,100%);margin-inline:auto;text-align:center}
+.rav-hero__eyebrow {margin:0 0 26px;color:var(--hero-accent);font-size:11px;font-weight:500;letter-spacing:.18em;line-height:1.6}
+.rav-hero__title {margin:0;font-size:clamp(46px,6.5vw,88px);font-weight:500;line-height:1.06;letter-spacing:-.055em;text-wrap:balance}
+.rav-hero__title > * {display:block}
+.rav-hero__title em {margin-top:5px;font-family:"Philosopher",Georgia,serif;font-size:1.12em;font-style:italic;font-weight:400;letter-spacing:-.035em;color:var(--hero-accent)}
+.rav-hero__description {max-width:530px;margin:26px auto 0;font-size:18px;line-height:1.6;color:var(--hero-muted);text-wrap:balance}
+.rav-hero__actions {display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:14px;margin-top:30px}
+.rav-hero .hero-button {display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:54px;border:1px solid var(--hero-edge);border-radius:999px;padding:6px 25px;text-decoration:none;font-size:14px;font-weight:500;line-height:1.4;transition:background-color .25s ease,transform .25s ease,box-shadow .25s ease}
+.rav-hero .hero-button--primary {padding-right:6px;background:#212a51;color:#fff;border-color:#212a51}
+.rav-hero .hero-button--secondary {color:var(--hero-ink);background:transparent}
+.hero-button__arrow {display:grid;place-items:center;flex-shrink:0;width:40px;height:40px;border-radius:50%;color:#212a51;background:#fff;transition:transform .3s ease}
+.rav-hero .hero-button:hover {transform:translateY(-2px);box-shadow:0 6px 18px rgba(33,42,81,.12)}
+.rav-hero .hero-button--secondary:hover {background:var(--hero-edge)}
+.rav-hero .hero-button--primary:hover .hero-button__arrow {transform:rotate(45deg)}
+.rav-hero .hero-button:active {transform:translateY(0)}
+.rav-hero :is(a,button,[tabindex]):focus-visible {outline:3px solid var(--hero-accent);outline-offset:5px}
+.rav-hero__alliances {width:min(1240px,100%);margin:clamp(54px,8vh,90px) auto 0}
+@media(max-width:767px) {
+  .rav-hero {min-height:auto;padding:132px 20px 42px}
+  .rav-hero__title {font-size:clamp(30px,6.7vw,48px);letter-spacing:-.05em}
+  .rav-hero__title em {font-size:1.2em;margin-top:9px}
+  .rav-hero__eyebrow {font-size:10px;letter-spacing:.12em;margin-bottom:23px}
+  .rav-hero__description {font-size:15px;max-width:34ch;margin-top:23px}
+  .rav-hero__actions {margin-top:24px;gap:10px}
+  .rav-hero__alliances {margin-top:48px}
+}
+@media(max-width:480px) {
+  .rav-hero {padding-top:120px;padding-inline:16px}
+  .rav-hero__title {font-size:clamp(28px,7.35vw,35px)}
+  .rav-hero__actions {flex-direction:column}
+  .rav-hero .hero-button {width:min(100%,290px);min-height:50px}
+  .rav-hero .hero-button--primary {justify-content:space-between}
+  .hero-button__arrow {width:36px;height:36px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .rav-hero__ambient {animation:none}
+  .rav-hero .hero-button,.hero-button__arrow {transition:none}
+  .rav-hero .hero-button:hover,.rav-hero .hero-button--primary:hover .hero-button__arrow {transform:none}
+}

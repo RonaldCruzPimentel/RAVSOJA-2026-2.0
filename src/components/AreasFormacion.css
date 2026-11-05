@@ -1,0 +1,686 @@
+/* ==================================================
+   ÁREAS DE FORMACIÓN
+   Archivo: src/components/AreasFormacion.css
+   ================================================== */
+
+.areas-formacion {
+  --areas-azul: #212a51;
+  --areas-blanco: #f7f6f4;
+  --areas-marfil: #f0e9d9;
+  --areas-beige: #c9bca4;
+  --areas-dorado: #b49b7c;
+  --areas-celeste: #1d748d;
+  --areas-texto: #25283b;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(5.5rem, 9vw, 9.5rem) 1.25rem;
+  background: linear-gradient(
+    180deg,
+    #f7f6f4 0%,
+    #f3efe7 48%,
+    #f7f6f4 100%
+  );
+  isolation: isolate;
+}
+
+.areas-formacion__contenedor {
+  width: min(100%, 1380px);
+  margin: 0 auto;
+}
+
+/* ==================================================
+   DECORACIÓN GENERAL
+   ================================================== */
+
+.areas-formacion__decoracion {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.areas-formacion__circulo {
+  position: absolute;
+  border: 1px solid rgba(33, 42, 81, 0.08);
+  border-radius: 50%;
+}
+
+.areas-formacion__circulo--uno {
+  top: 5%;
+  right: -16rem;
+  width: 38rem;
+  height: 38rem;
+}
+
+.areas-formacion__circulo--dos {
+  bottom: 14%;
+  left: -20rem;
+  width: 46rem;
+  height: 46rem;
+}
+
+.areas-formacion__linea-fondo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(33, 42, 81, 0.06) 15%,
+    rgba(33, 42, 81, 0.06) 85%,
+    transparent
+  );
+}
+
+/* ==================================================
+   ENCABEZADO
+   ================================================== */
+
+.areas-formacion__encabezado {
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.areas-formacion__encabezado-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(33, 42, 81, 0.15);
+}
+
+.areas-formacion__etiqueta,
+.areas-formacion__contador {
+  color: rgba(33, 42, 81, 0.65);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.areas-formacion__contador {
+  color: var(--areas-celeste);
+}
+
+.areas-formacion__encabezado-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
+  align-items: end;
+  gap: clamp(2rem, 7vw, 8rem);
+  margin-top: 2.2rem;
+}
+
+.areas-formacion__titulo {
+  margin: 0;
+  color: var(--areas-azul);
+  font-size: clamp(3.2rem, 7vw, 7.7rem);
+  font-weight: 300;
+  line-height: 0.86;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.areas-formacion__titulo span {
+  display: block;
+  margin-left: clamp(1.8rem, 9vw, 9rem);
+  color: var(--areas-celeste);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.85em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  text-transform: lowercase;
+}
+
+.areas-formacion__introduccion {
+  padding-bottom: 0.8rem;
+}
+
+.areas-formacion__introduccion p {
+  margin: 0;
+  color: rgba(37, 40, 59, 0.7);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.8;
+}
+
+.areas-formacion__introduccion-linea {
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin-top: 1.8rem;
+  background: var(--areas-dorado);
+}
+
+/* ==================================================
+   LISTA DE ÁREAS
+   ================================================== */
+
+.areas-formacion__lista {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.areas-formacion__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
+  min-height: clamp(560px, 72vh, 760px);
+  overflow: hidden;
+  border: 1px solid rgba(33, 42, 81, 0.08);
+  border-radius: clamp(24px, 3vw, 42px);
+  background: var(--area-soft);
+  box-shadow: 0 35px 90px rgba(33, 42, 81, 0.09);
+  opacity: 1;
+  transform: none;
+  transition:
+    box-shadow 450ms ease,
+    transform 450ms ease;
+}
+
+.areas-formacion__item:hover {
+  box-shadow: 0 45px 110px rgba(33, 42, 81, 0.15);
+  transform: translateY(-5px);
+}
+
+.areas-formacion__item--invertido {
+  grid-template-columns: minmax(360px, 0.75fr) minmax(0, 1.25fr);
+}
+
+.areas-formacion__item--invertido .areas-formacion__imagen-columna {
+  order: 2;
+}
+
+.areas-formacion__item--invertido .areas-formacion__contenido {
+  order: 1;
+}
+
+/* ==================================================
+   IMAGEN
+   ================================================== */
+
+.areas-formacion__imagen-columna {
+  position: relative;
+  min-width: 0;
+  padding: clamp(0.75rem, 1.6vw, 1.4rem);
+}
+
+.areas-formacion__imagen-marco {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 530px;
+  overflow: hidden;
+  border-radius: clamp(19px, 2.4vw, 32px);
+  background: var(--areas-azul);
+}
+
+.areas-formacion__imagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.025);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.areas-formacion__item:hover .areas-formacion__imagen {
+  transform: scale(1.085);
+}
+
+.areas-formacion__imagen-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 19, 42, 0.05) 20%,
+    rgba(15, 19, 42, 0.68) 100%
+  );
+  pointer-events: none;
+}
+
+.areas-formacion__imagen-numero {
+  position: absolute;
+  top: clamp(1.2rem, 2.5vw, 2rem);
+  left: clamp(1.2rem, 2.5vw, 2rem);
+  display: grid;
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: rgba(22, 25, 48, 0.18);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  place-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.areas-formacion__sticker {
+  position: absolute;
+  right: clamp(1rem, 2.5vw, 2.2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  width: clamp(110px, 12vw, 170px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.23));
+  transform: rotate(4deg);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.areas-formacion__item:hover .areas-formacion__sticker {
+  transform: rotate(0deg) translateY(-10px) scale(1.04);
+}
+
+/* ==================================================
+   CONTENIDO
+   ================================================== */
+
+.areas-formacion__contenido {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.2rem, 5vw, 5.2rem);
+}
+
+.areas-formacion__contenido::before {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--area-accent),
+    transparent
+  );
+  content: "";
+  opacity: 0.55;
+}
+
+.areas-formacion__item--invertido .areas-formacion__contenido::before {
+  right: 0;
+  left: auto;
+}
+
+.areas-formacion__contenido-superior {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: clamp(1.2rem, 2vw, 2rem);
+}
+
+.areas-formacion__categoria {
+  color: var(--area-accent);
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.areas-formacion__punto {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+  background: var(--area-accent);
+}
+
+.areas-formacion__nombre {
+  max-width: 580px;
+  margin: 0;
+  color: var(--areas-azul);
+  font-size: clamp(2.5rem, 4.5vw, 5.3rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.areas-formacion__descripcion {
+  max-width: 550px;
+  margin: clamp(1.4rem, 2.5vw, 2.2rem) 0 0;
+  color: rgba(37, 40, 59, 0.69);
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  line-height: 1.8;
+}
+
+/* ==================================================
+   INSTITUCIONES
+   ================================================== */
+
+.areas-formacion__instituciones {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.areas-formacion__instituciones-titulo {
+  display: block;
+  margin-bottom: 1rem;
+  color: rgba(33, 42, 81, 0.47);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.areas-formacion__instituciones-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.areas-formacion__institucion {
+  position: relative;
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.42rem 0.55rem 0.42rem 0.42rem;
+  border: 1px solid rgba(33, 42, 81, 0.11);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--areas-azul);
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.areas-formacion__institucion:hover {
+  border-color: var(--area-accent);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 13px 30px rgba(33, 42, 81, 0.12);
+  transform: translateY(-3px);
+}
+
+.areas-formacion__logo-marco {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #ffffff;
+  place-items: center;
+}
+
+.areas-formacion__logo-marco img {
+  display: block;
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+}
+
+.areas-formacion__institucion-nombre {
+  max-width: 145px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.areas-formacion__flecha {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  border-radius: 50%;
+  background: rgba(33, 42, 81, 0.07);
+  color: var(--areas-azul);
+  font-size: 0.72rem;
+  place-items: center;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    transform 300ms ease;
+}
+
+.areas-formacion__institucion:hover .areas-formacion__flecha {
+  background: var(--area-accent);
+  color: #ffffff;
+  transform: rotate(45deg);
+}
+
+/* ==================================================
+   DETALLE INFERIOR
+   ================================================== */
+
+.areas-formacion__detalle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: clamp(2rem, 4vw, 4rem);
+}
+
+.areas-formacion__detalle span {
+  width: 42px;
+  height: 1px;
+  background: var(--area-accent);
+}
+
+.areas-formacion__detalle small {
+  color: rgba(33, 42, 81, 0.42);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+/* ==================================================
+   CIERRE
+   ================================================== */
+
+.areas-formacion__cierre {
+  display: grid;
+  width: min(100%, 1000px);
+  grid-template-columns: minmax(40px, 1fr) auto minmax(40px, 1fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin: clamp(5rem, 9vw, 9rem) auto 0;
+}
+
+.areas-formacion__cierre p {
+  max-width: 660px;
+  margin: 0;
+  color: rgba(33, 42, 81, 0.7);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.areas-formacion__cierre-linea {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(33, 42, 81, 0.28)
+  );
+}
+
+.areas-formacion__cierre-linea:last-child {
+  transform: rotate(180deg);
+}
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 1050px) {
+  .areas-formacion__encabezado-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .areas-formacion__introduccion {
+    max-width: 620px;
+  }
+
+  .areas-formacion__item,
+  .areas-formacion__item--invertido {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .areas-formacion__item--invertido .areas-formacion__imagen-columna,
+  .areas-formacion__item--invertido .areas-formacion__contenido {
+    order: initial;
+  }
+
+  .areas-formacion__imagen-marco {
+    min-height: 520px;
+  }
+
+  .areas-formacion__contenido::before,
+  .areas-formacion__item--invertido .areas-formacion__contenido::before {
+    top: 0;
+    right: 10%;
+    bottom: auto;
+    left: 10%;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--area-accent),
+      transparent
+    );
+  }
+}
+
+/* ==================================================
+   MÓVIL
+   ================================================== */
+
+@media (max-width: 700px) {
+  .areas-formacion {
+    padding: 5rem 0.8rem;
+  }
+
+  .areas-formacion__encabezado {
+    padding-inline: 0.45rem;
+  }
+
+  .areas-formacion__encabezado-superior {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .areas-formacion__titulo {
+    font-size: clamp(3rem, 15vw, 4.8rem);
+  }
+
+  .areas-formacion__titulo span {
+    margin-top: 0.08em;
+    margin-left: 0.5em;
+  }
+
+  .areas-formacion__lista {
+    gap: 1.7rem;
+  }
+
+  .areas-formacion__item {
+    border-radius: 25px;
+  }
+
+  .areas-formacion__item:hover {
+    transform: none;
+  }
+
+  .areas-formacion__imagen-columna {
+    padding: 0.65rem;
+  }
+
+  .areas-formacion__imagen-marco {
+    min-height: 390px;
+    border-radius: 19px;
+  }
+
+  .areas-formacion__sticker {
+    width: 115px;
+  }
+
+  .areas-formacion__contenido {
+    padding: 2.5rem 1.35rem 2.2rem;
+  }
+
+  .areas-formacion__nombre {
+    font-size: clamp(2.3rem, 11vw, 3.4rem);
+  }
+
+  .areas-formacion__instituciones-lista {
+    flex-direction: column;
+  }
+
+  .areas-formacion__institucion {
+    width: 100%;
+  }
+
+  .areas-formacion__institucion-nombre {
+    max-width: none;
+    flex: 1;
+  }
+
+  .areas-formacion__cierre {
+    display: block;
+    padding-inline: 1rem;
+  }
+
+  .areas-formacion__cierre-linea {
+    display: none;
+  }
+}
+
+/* ==================================================
+   PANTALLAS MUY PEQUEÑAS
+   ================================================== */
+
+@media (max-width: 420px) {
+  .areas-formacion {
+    padding-inline: 0.65rem;
+  }
+
+  .areas-formacion__imagen-marco {
+    min-height: 340px;
+  }
+
+  .areas-formacion__imagen-numero {
+    width: 46px;
+    height: 46px;
+  }
+
+  .areas-formacion__sticker {
+    width: 100px;
+  }
+
+  .areas-formacion__contenido {
+    padding-inline: 1.15rem;
+  }
+}
+
+/* ==================================================
+   ACCESIBILIDAD
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .areas-formacion__item,
+  .areas-formacion__imagen,
+  .areas-formacion__sticker,
+  .areas-formacion__institucion,
+  .areas-formacion__flecha {
+    transition: none;
+  }
+}
