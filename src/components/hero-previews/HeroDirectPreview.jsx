@@ -21,7 +21,7 @@ export default function HeroDirectPreview() {
             <a href={HERO_WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Hablar con un asesor</a>
           </Button>
           <Button asChild size="lg" className="preview-direct__button preview-direct__button--primary">
-            <a href="/oferta-educativa.html">Ver catálogo <ArrowRight aria-hidden="true" /></a>
+            <a href={import.meta.env.BASE_URL + "oferta-educativa.html"}>Ver catálogo <ArrowRight aria-hidden="true" /></a>
           </Button>
         </div>
       </div>

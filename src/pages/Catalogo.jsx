@@ -104,7 +104,7 @@ export default function Catalogo() {
     <main ref={catalogRef} id="contenido-catalogo" className="rv-offer-catalog" aria-labelledby="catalog-title">
       <div className="rv-offer-atmosphere" aria-hidden="true"><div className="rv-offer-atmosphere__flow" /></div>
       <div className="rv-offer-catalog__container">
-        <a className="rv-offer-catalog__back" href="/#inicio">
+        <a className="rv-offer-catalog__back" href={import.meta.env.BASE_URL + "#inicio"}>
           <ArrowLeft aria-hidden="true" /> Volver a RAVSOJA
         </a>
 

@@ -7,6 +7,7 @@ import { fileURLToPath } from "url"
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? "/RAVSOJA-2026-2.0/" : "/",
   plugins: [react()],
 
   resolve: {

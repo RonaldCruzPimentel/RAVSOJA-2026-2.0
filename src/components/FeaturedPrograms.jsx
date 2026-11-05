@@ -15,7 +15,7 @@ export default function FeaturedPrograms() {
           <p>
             Conoce una selección de los diplomados disponibles en CUETMX y consulta el catálogo para ver sus detalles.
           </p>
-          <a href="/oferta-educativa.html">
+          <a href={import.meta.env.BASE_URL + "oferta-educativa.html"}>
             Ver catálogo completo
             <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
           </a>
@@ -27,7 +27,7 @@ export default function FeaturedPrograms() {
               className={`featured-program${index === 0 ? " featured-program--main" : ""}`}
               key={programa.id}
             >
-              <a href={`/oferta-educativa.html?programa=${programa.id}`} aria-label={`Conocer ${programa.title}`}>
+              <a href={`${import.meta.env.BASE_URL}oferta-educativa.html?programa=${programa.id}`} aria-label={`Conocer ${programa.title}`}>
                 <img src={programa.image} alt={`Portada de ${programa.title}`} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
                 <div className="featured-program__body">
                   <div className="featured-program__meta">

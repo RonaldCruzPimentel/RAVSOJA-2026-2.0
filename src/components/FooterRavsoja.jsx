@@ -223,31 +223,31 @@ export default function FooterRavsoja() {
                 className="footer-ravsoja__enlaces"
                 aria-label="Navegación del sitio"
               >
-                <a href="/#inicio">Inicio</a>
+                <a href={import.meta.env.BASE_URL + "#inicio"}>Inicio</a>
 
-                <a href="/oferta-educativa.html">Oferta educativa</a>
+                <a href={import.meta.env.BASE_URL + "oferta-educativa.html"}>Oferta educativa</a>
 
-                <a href="/#instituciones">
+                <a href={import.meta.env.BASE_URL + "#instituciones"}>
                   Institutos
                 </a>
 
-                <a href="/#areas-formacion">
+                <a href={import.meta.env.BASE_URL + "#areas-formacion"}>
                   Áreas de formación
                 </a>
 
-                <a href="/#convenios">
+                <a href={import.meta.env.BASE_URL + "#convenios"}>
                   Convenios
                 </a>
 
-                <a href="/#experiencias">
+                <a href={import.meta.env.BASE_URL + "#experiencias"}>
                   Experiencias
                 </a>
 
-                <a href="/#numeralia">
+                <a href={import.meta.env.BASE_URL + "#numeralia"}>
                   Numeralia
                 </a>
 
-                <a href="/#contacto">
+                <a href={import.meta.env.BASE_URL + "#contacto"}>
                   Contacto
                 </a>
               </nav>
@@ -357,11 +357,11 @@ export default function FooterRavsoja() {
             </p>
 
             <div>
-              <a href="/aviso-de-privacidad.html">
+              <a href={import.meta.env.BASE_URL + "aviso-de-privacidad.html"}>
                 Aviso de privacidad
               </a>
 
-              <a href="/terminos-y-condiciones.html">
+              <a href={import.meta.env.BASE_URL + "terminos-y-condiciones.html"}>
                 Términos y condiciones
               </a>
             </div>

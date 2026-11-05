@@ -185,7 +185,7 @@ function AboutSection() {
             />
 
             <img
-              src="/mascota.webp"
+              src={import.meta.env.BASE_URL + "mascota.webp"}
               alt="Mascota RAVSOJA"
               loading="lazy"
               decoding="async"

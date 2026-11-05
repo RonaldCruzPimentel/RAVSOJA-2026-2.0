@@ -13,7 +13,7 @@ export default function QuickFinder() {
           </div>
         </div>
 
-        <form className="quick-finder__form" action="/oferta-educativa.html" method="get">
+        <form className="quick-finder__form" action={import.meta.env.BASE_URL + "oferta-educativa.html"} method="get">
           <label>
             <span>Área de interés</span>
             <select name="area" defaultValue="">

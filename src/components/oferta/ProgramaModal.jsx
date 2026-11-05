@@ -10,7 +10,7 @@ const tabs = [
   { id: "calendario", label: "Calendario" },
 ];
 
-const SEAL_IMAGE = "/catalogo/cuetmx/otros/SELLO RAVSOJA.png";
+const SEAL_IMAGE = (import.meta.env.BASE_URL + "catalogo/cuetmx/otros/SELLO RAVSOJA.png");
 
 export default function ProgramaModal({ program, onClose }) {
   const closeButtonRef = useRef(null);

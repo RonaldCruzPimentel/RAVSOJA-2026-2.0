@@ -368,7 +368,7 @@ ${mensaje}
               </button>
 
               <p className="contacto-ravsoja__privacidad">
-                Al enviar aceptas el tratamiento de tus datos conforme al <a href="/aviso-de-privacidad.html">aviso de privacidad</a>.
+                Al enviar aceptas el tratamiento de tus datos conforme al <a href={import.meta.env.BASE_URL + "aviso-de-privacidad.html"}>aviso de privacidad</a>.
               </p>
 
               {mensajeEstado && (

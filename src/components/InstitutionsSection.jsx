@@ -18,9 +18,9 @@ const institutions = [
     fullName:
       "Centro Universitario de Especialidades Terapéuticas de México",
     number: "01",
-    logo: "/IMGINSTITUCIONES/cuetmx-logo.webp",
+    logo: (import.meta.env.BASE_URL + "IMGINSTITUCIONES/cuetmx-logo.webp"),
     website: "https://cuetmx.ravsoja.com/",
-    offerUrl: "/oferta-educativa.html",
+    offerUrl: (import.meta.env.BASE_URL + "oferta-educativa.html"),
 
     colors: {
       primary: "#4a1720",
@@ -124,7 +124,7 @@ const institutions = [
     fullName:
       "Instituto Nacional de Actualización y Formación en Ciencias de la Salud",
     number: "02",
-    logo: "/IMGINSTITUCIONES/inafam-logo.webp",
+    logo: (import.meta.env.BASE_URL + "IMGINSTITUCIONES/inafam-logo.webp"),
     website: "https://inafam.ravsoja.com/",
     offerUrl: "https://inafam.ravsoja.com/#diplomados",
 
@@ -237,7 +237,7 @@ const institutions = [
     fullName:
       "Academia de Ciencias Sociopolíticas y Jurídicas Nicolás Maquiavelo",
     number: "03",
-    logo: "/IMGINSTITUCIONES/nicolas-logo.webp",
+    logo: (import.meta.env.BASE_URL + "IMGINSTITUCIONES/nicolas-logo.webp"),
     website: "https://nicolasmaquiavelo.ravsoja.com/",
     offerUrl:
       "https://nicolasmaquiavelo.ravsoja.com/#diplomados",
@@ -331,7 +331,7 @@ const institutions = [
     fullName:
       "Instituto de Capacitación Laboral y Desarrollo Humano ANTARES",
     number: "04",
-    logo: "/IMGINSTITUCIONES/antares-logo.webp",
+    logo: (import.meta.env.BASE_URL + "IMGINSTITUCIONES/antares-logo.webp"),
     website: "https://antares.ravsoja.com/",
     offerUrl: "https://antares.ravsoja.com/#oferta",
 
@@ -1034,7 +1034,7 @@ function InstitutionsSection() {
               <div className="institution-image-panel">
 
                 <img
-                  src="/IMGINSTITUCIONES/graduacion-general.webp"
+                  src={import.meta.env.BASE_URL + "IMGINSTITUCIONES/graduacion-general.webp"}
                   alt="Ceremonia de graduación del Consorcio Educativo RAVSOJA"
                   loading="lazy"
                   decoding="async"

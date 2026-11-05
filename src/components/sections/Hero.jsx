@@ -29,7 +29,7 @@ export default function Hero() {
         </h1>
         <p className="rav-hero__description rav-hero__reveal">Cuatro instituciones, una misma visión para acompañar tu formación.</p>
         <div className="rav-hero__actions rav-hero__reveal">
-          <a className="hero-button hero-button--primary" href="/oferta-educativa.html">
+          <a className="hero-button hero-button--primary" href={import.meta.env.BASE_URL + "oferta-educativa.html"}>
             Explorar oferta educativa
             <span className="hero-button__arrow" aria-hidden="true"><ArrowUpRight size={19} /></span>
           </a>

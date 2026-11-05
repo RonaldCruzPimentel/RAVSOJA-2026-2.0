@@ -1,6 +1,6 @@
 import { docentesAgosto } from "./docentes.js";
 
-const base = "/catalogo/cuetmx";
+const base = (import.meta.env.BASE_URL + "catalogo/cuetmx");
 
 const areasPorPrograma = {
   "farmacologia-clinica": "Ciencias de la Salud",

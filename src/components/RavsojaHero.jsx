@@ -70,7 +70,7 @@ export default function RavsojaHero() {
           className="top-[15%] left-[8%]"
         >
           <motion.img
-            src="/stickers/cuetmx.png"
+            src={import.meta.env.BASE_URL + "stickers/cuetmx.png"}
             alt="CUETMX"
             className="w-32 md:w-40 opacity-80"
             animate={{
@@ -89,7 +89,7 @@ export default function RavsojaHero() {
           className="top-[20%] right-[10%]"
         >
           <motion.img
-            src="/stickers/inafam.png"
+            src={import.meta.env.BASE_URL + "stickers/inafam.png"}
             alt="INAFAM"
             className="w-28 md:w-36 opacity-80"
             animate={{
@@ -108,7 +108,7 @@ export default function RavsojaHero() {
           className="bottom-[15%] left-[12%]"
         >
           <motion.img
-            src="/stickers/antares.png"
+            src={import.meta.env.BASE_URL + "stickers/antares.png"}
             alt="ANTARES"
             className="w-36 md:w-44 opacity-80"
             animate={{
@@ -127,7 +127,7 @@ export default function RavsojaHero() {
           className="bottom-[10%] right-[12%]"
         >
           <motion.img
-            src="/stickers/maquiavelo.png"
+            src={import.meta.env.BASE_URL + "stickers/maquiavelo.png"}
             alt="MAQUIAVELO"
             className="w-28 md:w-36 opacity-80"
             animate={{

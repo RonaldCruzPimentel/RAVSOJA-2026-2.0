@@ -12,7 +12,7 @@ import inafam from "../../assets/logos/inafam-logo.webp"
 import nicolas from "../../assets/logos/nicolas-logo.webp"
 import antares from "../../assets/logos/antares-logo.webp"
 
-const site = ""
+const site = import.meta.env.BASE_URL.replace(/\/$/, "")
 const whatsapp = "https://wa.me/529615987134?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20oferta%20educativa%20de%20RAVSOJA."
 const institutions = [
   { name: "CUETMX", detail: "Especialidades terapéuticas", logo: cuetmx, url: "https://cuetmx.ravsoja.com/" },
@@ -119,7 +119,7 @@ export default function Navbar() {
       if (!event.currentTarget.contains(event.relatedTarget)) { setMobileOpen(false); setInstitutionsOpen(false); setHighlight(null) }
     }}>
       <div className="header-row">
-        <a className="brand" href={site + "/#inicio"} aria-label="Ir al inicio de RAVSOJA">
+        <a className="brand" href={(import.meta.env.BASE_URL + "#inicio")} aria-label="Ir al inicio de RAVSOJA">
           <img className="brand__crest" src={crest} alt="" width="58" height="58" fetchPriority="high" />
           <span className="brand__type"><small>Consorcio Educativo</small><strong>RAVSOJA</strong></span>
         </a>
@@ -127,7 +127,7 @@ export default function Navbar() {
         <div className="navigation-capsule">
           <nav className="desktop-nav" aria-label="Navegación principal" onPointerLeave={() => setHighlight(institutionsOpen ? "Instituciones" : null)}>
             {pill("Experiencias", "experiencias")}
-            {pill("Oferta educativa", "/oferta-educativa.html")}
+            {pill("Oferta educativa", (import.meta.env.BASE_URL + "oferta-educativa.html"))}
             <div className="institution-disclosure">
               {pill("Instituciones", "instituciones", true)}
               <div id="desktop-institutions" className="institution-dropdown" hidden={!institutionsOpen}>
@@ -146,12 +146,12 @@ export default function Navbar() {
         </div>
       </div>
       <nav className={`mobile-navigation${mobileOpen ? " is-open" : ""}`} id="mobile-navigation" aria-label="Navegación móvil" aria-hidden={!mobileOpen} inert={!mobileOpen}>
-        <a className="mobile-link" href="/oferta-educativa.html">Oferta educativa <ArrowUpRight size={17} aria-hidden="true" /></a>
-        <a className="mobile-link" href={site + "/#experiencias"}>Experiencias <ArrowUpRight size={17} aria-hidden="true" /></a>
+        <a className="mobile-link" href={import.meta.env.BASE_URL + "oferta-educativa.html"}>Oferta educativa <ArrowUpRight size={17} aria-hidden="true" /></a>
+        <a className="mobile-link" href={(import.meta.env.BASE_URL + "#experiencias")}>Experiencias <ArrowUpRight size={17} aria-hidden="true" /></a>
         <button type="button" className="mobile-link institution-trigger" aria-controls="mobile-institutions" aria-expanded={institutionsOpen} onClick={() => setInstitutionsOpen(!institutionsOpen)}>Instituciones <ChevronDown size={17} className={institutionsOpen ? "chevron is-open" : "chevron"} aria-hidden="true" /></button>
         <div id="mobile-institutions" className="mobile-institutions" hidden={!institutionsOpen}><InstitutionLinks onNavigate={() => { setMobileOpen(false); setInstitutionsOpen(false) }} /></div>
-        <a className="mobile-link" href={site + "/#areas-formacion"}>Áreas de formación <ArrowUpRight size={17} aria-hidden="true" /></a>
-        <a className="mobile-link" href={site + "/#contacto"}>Contacto <ArrowUpRight size={17} aria-hidden="true" /></a>
+        <a className="mobile-link" href={(import.meta.env.BASE_URL + "#areas-formacion")}>Áreas de formación <ArrowUpRight size={17} aria-hidden="true" /></a>
+        <a className="mobile-link" href={(import.meta.env.BASE_URL + "#contacto")}>Contacto <ArrowUpRight size={17} aria-hidden="true" /></a>
         <div className="mobile-actions"><ActionLinks /></div>
       </nav>
     </header>

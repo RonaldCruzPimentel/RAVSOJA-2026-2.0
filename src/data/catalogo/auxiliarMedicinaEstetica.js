@@ -14,13 +14,13 @@ const auxiliarMedicinaEstetica = {
   modalidad: "PRESENCIAL / EN LÍNEA",
 
   imagen:
-    "/catalogo/cuetmx/auxmedest.jpg",
+    (import.meta.env.BASE_URL + "catalogo/cuetmx/auxmedest.jpg"),
 
   pdfMapa:
-    "/catalogo/cuetmx/programas/mapa-curricular-aux-med-est.pdf",
+    (import.meta.env.BASE_URL + "catalogo/cuetmx/programas/mapa-curricular-aux-med-est.pdf"),
 
   pdfCalendario:
-    "/catalogo/cuetmx/calendarios/calendario-aux-med-est.pdf",
+    (import.meta.env.BASE_URL + "catalogo/cuetmx/calendarios/calendario-aux-med-est.pdf"),
 
   descripcionCompleta:
     "El Diplomado Auxiliar en Medicina Estética está diseñado para brindar una formación integral en conocimientos, procedimientos y herramientas relacionadas con la asistencia dentro del área de la medicina estética.",
@@ -59,7 +59,7 @@ const auxiliarMedicinaEstetica = {
         "Dra. Michelle Gómez",
 
       foto:
-        "/catalogo/cuetmx/docentes/michelle.jpeg",
+        (import.meta.env.BASE_URL + "catalogo/cuetmx/docentes/michelle.jpeg"),
 
       resumen:
         "Médico Cirujano · Cirugía Estética · Naturoterapia",
@@ -102,7 +102,7 @@ const auxiliarMedicinaEstetica = {
         "Dra. Olga Castro",
 
       foto:
-        "/catalogo/cuetmx/docentes/olga.jpeg",
+        (import.meta.env.BASE_URL + "catalogo/cuetmx/docentes/olga.jpeg"),
 
       resumen:
         "Médico Cirujano · Medicina del Trabajo · Medicina Estética",
@@ -142,7 +142,7 @@ const auxiliarMedicinaEstetica = {
         "Mtra. Nancy Ramírez",
 
       foto:
-        "/catalogo/cuetmx/docentes/nancy.jpeg",
+        (import.meta.env.BASE_URL + "catalogo/cuetmx/docentes/nancy.jpeg"),
 
       resumen:
         "Acupuntura Humana Rehabilitatoria · Dirección de Organizaciones de Salud",
@@ -176,7 +176,7 @@ const auxiliarMedicinaEstetica = {
         "Lic. Julia Mazuera",
 
       foto:
-        "/catalogo/cuetmx/docentes/julia.jpeg",
+        (import.meta.env.BASE_URL + "catalogo/cuetmx/docentes/julia.jpeg"),
 
       resumen:
         "Bacteriología · Bioanálisis · Estética y Cosmetología",
@@ -210,7 +210,7 @@ const auxiliarMedicinaEstetica = {
         "Lic. Elvia García",
 
       foto:
-        "/catalogo/cuetmx/docentes/elvia-garcia.jpeg",
+        (import.meta.env.BASE_URL + "catalogo/cuetmx/docentes/elvia-garcia.jpeg"),
 
       resumen:
         "Cosmiatría · Micropigmentación · Maquillaje Profesional",

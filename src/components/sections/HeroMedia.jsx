@@ -53,7 +53,7 @@ export default function HeroMedia() {
   return <div className="rav-hero__media">
     <div className="rav-hero__footage">
       <video ref={player} className="hero-video" muted loop playsInline preload="none"
-        poster="/media/phase1/hero-graduacion.webp" src="/media/phase1/graduacion-hero.mp4"
+        poster={import.meta.env.BASE_URL + "media/phase1/hero-graduacion.webp"} src={import.meta.env.BASE_URL + "media/phase1/graduacion-hero.mp4"}
         aria-label="Ceremonia de graduación de RAVSOJA" aria-describedby="hero-video-description"
         onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} />
     </div>
