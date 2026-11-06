@@ -99,7 +99,7 @@
 .rv-offer-filter-row :is(input,select):focus { border-color:var(--catalog-accent-ink);background:var(--catalog-surface);box-shadow:0 0 0 4px color-mix(in srgb,var(--rv-catalog-secondary) 13%,transparent); }
 .rv-offer-view { background:var(--catalog-paper);border:1px solid var(--catalog-line);border-radius:13px;padding:3px; }
 .rv-offer-view button { font-size:12px;min-height:40px;transition:background .25s,color .25s; }
-.rv-offer-view button[aria-pressed="true"] { background:var(--catalog-surface);color:var(--catalog-accent-ink);box-shadow:0 2px 8px #10182e12; }
+.rv-offer-view button[aria-pressed="true"] { background:var(--rv-catalog-accent);color:#fff;box-shadow:0 2px 8px #10182e20; }
 .rv-offer-catalog__summary { border:0;align-items:center;padding:0 3px;margin:0 0 34px;font-size:10px;letter-spacing:.08em; }
 .rv-offer-catalog__summary > span:first-child { padding:8px 12px;border:1px solid var(--catalog-line);border-radius:999px;color:var(--catalog-accent-ink);background:var(--catalog-surface); }
 
@@ -180,7 +180,7 @@
 :root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-institutions button { background:transparent;border-color:var(--catalog-line); }
 :root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-institutions button[aria-pressed="true"] { background:var(--institution-accent,#212a51);border-color:color-mix(in srgb,var(--institution-accent,#212a51) 50%,#bbc7e8); }
 :root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-view button { background:transparent; }
-:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-view button[aria-pressed="true"] { background:#2a3850;color:var(--rv-ink); }
+:root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-view button[aria-pressed="true"] { background:var(--rv-catalog-accent);color:#fff; }
 :root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-catalog__sort-option { background:transparent; }
 :root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-catalog__sort-option[aria-selected="true"] { background:var(--rv-catalog-accent); }
 :root[data-rav-theme="dark"] .rv-offer-catalog .rv-offer-catalog__sort-option:hover { color:#fff;background:#31415b; }
