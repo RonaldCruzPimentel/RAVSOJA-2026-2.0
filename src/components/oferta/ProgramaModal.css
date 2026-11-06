@@ -51,11 +51,11 @@
 }
 .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-image .is-logo {padding:30px;max-height:340px}
 .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-content {position:relative;isolation:isolate;padding:0;min-width:0;display:flex;gap:0;background:none;color:var(--modal-ink)}
-.rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-content::before {
+.rv-offer-modal.rv-offer-modal--editorial[data-institute="cuetmx"] .rv-offer-modal__hero-content::before {
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:url("../../assets/laurel-marca-agua.png") center / min(100%, 520px) auto no-repeat;
 }
-:root[data-rav-theme="dark"] .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__hero-content::before {opacity:.8}
+:root[data-rav-theme="dark"] .rv-offer-modal.rv-offer-modal--editorial[data-institute="cuetmx"] .rv-offer-modal__hero-content::before {opacity:.8}
 
 .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__eyebrow {display:flex;align-items:center;gap:10px;margin:0 0 16px;color:var(--modal-highlight);font-size:12px;letter-spacing:.07em;line-height:1.4;font-weight:500}
 .rv-offer-modal.rv-offer-modal--editorial .rv-offer-modal__eyebrow img {width:36px;height:36px;object-fit:contain;padding:4px;border-radius:50%;background:#fff;flex-shrink:0}
