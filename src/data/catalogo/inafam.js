@@ -1,5 +1,6 @@
 import perfiles from './inafam-docentes.json'
 import { inafamCurricula } from './inafam-mapas.js'
+import { inafamInformation } from './inafam-informacion.js'
 
 // Las claves son identificadores internos; nunca se utilizan como etiquetas públicas.
 const docentes = (keys) => keys.map((key, index) => ({ ...perfiles[key], numero: String(index + 1).padStart(2, '0'), sinFoto: true }))
@@ -16,7 +17,7 @@ const definitions = [
 ]
 export const inafamPrograms = definitions.map(([slug,title,startDate,duration,shift,generation,teachers]) => ({
   id: `inafam-${slug}`, institutionId: 'inafam', title, shortTitle: title, abbreviation: title,
-  category: 'Diplomado', description: null, image: null, modalImage: null, duration, modality: 'En línea', shift,
-  audience: null, curriculum: inafamCurricula[slug]?.curriculum || [], teachers: docentes(teachers), programPdf: inafamCurricula[slug]?.programPdf || null, source: 'INAFAM', salesVerified: false,
+  category: 'Diplomado', description: inafamInformation[slug]?.description || null, image: null, modalImage: null, duration, modality: 'En línea', shift,
+  audience: inafamInformation[slug]?.audience || null, curriculum: inafamCurricula[slug]?.curriculum || [], teachers: docentes(teachers), programPdf: inafamCurricula[slug]?.programPdf || null, source: 'INAFAM', salesVerified: false,
   startDate, generation,
 }))
