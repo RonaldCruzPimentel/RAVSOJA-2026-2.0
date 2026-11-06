@@ -119,3 +119,8 @@
 @media(prefers-reduced-motion:reduce) {
   .rv-offer-modal.rv-offer-modal--editorial *, .rv-offer-modal.rv-offer-modal--editorial *::before {animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-teacher-profile__summary:has(.rv-offer-teacher-profile__heading:first-child) { grid-template-columns: minmax(0, 1fr) 30px; }
+.rv-offer-modal.rv-offer-modal--editorial .rv-offer-teacher-profile__content:has(.rv-offer-teacher-profile__education:only-child) { grid-template-columns: minmax(0, 1fr); }
+
+@media (min-width: 761px) { .rv-offer-modal.rv-offer-modal--editorial .rv-offer-calendar-row--academic { grid-template-columns: 195px minmax(0, 1fr); } }

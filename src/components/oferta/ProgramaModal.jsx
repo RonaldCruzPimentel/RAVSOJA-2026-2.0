@@ -153,6 +153,7 @@ export default function ProgramaModal({ program, onClose }) {
               <div className="rv-offer-modal__fact"><span>INICIO</span><strong>{program.startLabel.toUpperCase()}</strong></div>
               <div className="rv-offer-modal__fact"><span>DURACIÓN</span><strong>{(program.duration || "Por confirmar").toUpperCase()}</strong></div>
               <div className="rv-offer-modal__fact"><span>MODALIDAD</span><strong>{(program.modality || "Por confirmar").toUpperCase()}</strong></div>
+              {program.shift && <div className="rv-offer-modal__fact"><span>TURNO</span><strong>{program.shift.toUpperCase()}</strong></div>}
             </motion.div>
 
             <motion.div variants={reducedMotion ? undefined : reveal} className="rv-offer-modal__action"><a href={whatsappUrl} target="_blank" rel="noreferrer" className="rv-offer-modal__cta">
@@ -262,7 +263,7 @@ export default function ProgramaModal({ program, onClose }) {
                   {teachers.map((teacher) => (
                     <details className="rv-offer-teacher-profile" key={teacher.numero}>
                       <summary className="rv-offer-teacher-profile__summary">
-                        {teacher.foto ? (
+                        {teacher.sinFoto ? null : teacher.foto ? (
                           <div className="rv-offer-teacher-profile__photo"><img src={teacher.foto} alt={teacher.nombre} loading="lazy" decoding="async" /></div>
                         ) : (
                           <div className="rv-offer-teacher-profile__number">{teacher.numero}</div>
@@ -281,7 +282,7 @@ export default function ProgramaModal({ program, onClose }) {
                             <div className="rv-offer-teacher-data" key={`${teacher.numero}-formacion-${index}`}><small>{item.titulo}</small><p>{item.texto}</p></div>
                           ))}
                         </div>
-                        <div className="rv-offer-teacher-experience">
+                        {!teacher.sinFoto && <div className="rv-offer-teacher-experience">
                           <small>LOGROS Y EXPERIENCIA DOCENTE</small>
                           <div className="rv-offer-teacher-experience__list">
                             {(teacher.experiencia || []).map((experience, index) => (
@@ -290,11 +291,12 @@ export default function ProgramaModal({ program, onClose }) {
                               </div>
                             ))}
                           </div>
-                        </div>
+                        </div>}
                       </div>
                     </details>
                   ))}
                 </div>
+                {program.pendingIdentity && <p>Información de un docente próximamente disponible.</p>}
               </div>
             ) : (
               <div className="rv-offer-modal__tab-panel rv-offer-program-placeholder">
@@ -309,22 +311,22 @@ export default function ProgramaModal({ program, onClose }) {
             <div className="rv-offer-modal__tab-panel">
               <div className="rv-offer-tab-heading rv-offer-tab-heading--action">
                 <div>
-                  <p className="rv-offer-modal__section-eyebrow">FECHAS DE CLASES Y PAGOS</p>
+                  <p className="rv-offer-modal__section-eyebrow">{program.source === "INAFAM" ? "FECHAS DE CLASES" : "FECHAS DE CLASES Y PAGOS"}</p>
                   <h3>Calendario del programa</h3>
-                  <p>Consulta las fechas de clases, periodos de pago y sesiones principales.</p>
+                  <p>{program.source === "INAFAM" ? (program.calendarPending ? `Inicio: ${program.startLabel}.` : "Consulta las sesiones del calendario académico.") : "Consulta las fechas de clases, periodos de pago y sesiones principales."}</p>
                 </div>
-                {downloadButton(program.calendarPdf || program.calendarImage, program.calendarPdf ? "Descargar calendario PDF" : "Descargar calendario (imagen)")}
+                {program.source !== "INAFAM" && downloadButton(program.calendarPdf || program.calendarImage, program.calendarPdf ? "Descargar calendario PDF" : "Descargar calendario (imagen)")}
               </div>
 
               {calendar.length > 0 ? (
                 <div className="rv-offer-calendar-list">
                   {calendar.map((period, index) => (
-                    <article className="rv-offer-calendar-row" key={`${period.mes}-${period.anio}`}>
+                    <article className={`rv-offer-calendar-row${program.source === "INAFAM" ? " rv-offer-calendar-row--academic" : ""}`} key={`${period.mes}-${period.anio}`}>
                       <div className="rv-offer-calendar-row__month">
                         <span>{String(index + 1).padStart(2, "0")}</span>
                         <div><small>MES</small><strong>{period.mes}</strong><p>{period.anio}</p></div>
                       </div>
-                      <div className="rv-offer-calendar-row__payment"><small>FECHA DE PAGO</small><strong>{period.pago && !["-", "—"].includes(period.pago) ? period.pago : "Por confirmar"}</strong></div>
+                      {program.source !== "INAFAM" && <div className="rv-offer-calendar-row__payment"><small>FECHA DE PAGO</small><strong>{period.pago && !["-", "—"].includes(period.pago) ? period.pago : "Por confirmar"}</strong></div>}
                       <div className="rv-offer-calendar-row__classes">
                         {period.clases.map((lesson, lessonIndex) => (
                           <div className="rv-offer-calendar-class" key={`${period.mes}-${period.anio}-${lessonIndex}`}>
@@ -342,7 +344,7 @@ export default function ProgramaModal({ program, onClose }) {
                   ))}
                 </div>
               ) : (
-                <div className="rv-offer-program-placeholder rv-offer-program-placeholder--compact"><p>{program.calendarPdf || program.calendarImage ? "Consulta el calendario en el documento adjunto." : "Las fechas de clases y pagos se publicarán cuando estén confirmadas."}</p></div>
+                <div className="rv-offer-program-placeholder rv-offer-program-placeholder--compact"><p>{program.calendarPending ? "Calendario académico próximamente disponible" : program.calendarPdf || program.calendarImage ? "Consulta el calendario en el documento adjunto." : "Las fechas de clases y pagos se publicarán cuando estén confirmadas."}</p></div>
               )}
             </div>
           )}

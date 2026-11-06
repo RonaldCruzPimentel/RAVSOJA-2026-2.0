@@ -2,6 +2,8 @@ import { INSTITUTOS, PROGRAMAS, CONVOCATORIAS, WHATSAPP } from "../catalogo.js"
 import { programasCatalogo } from "./programas.js"
 import auxiliar from "./auxiliarMedicinaEstetica.js"
 import { calendariosProgramas } from "./calendarios.js"
+import { inafamPrograms } from "./inafam.js"
+import { inafamCalendars } from "./inafam-calendarios.js"
 
 export const institutions = INSTITUTOS.map((institution) => ({
   ...institution,
@@ -29,7 +31,7 @@ export const programs = [
       salesVerified: false,
     }
   }),
-  ...PROGRAMAS.filter((item) => !covered.has(item.id)).map((item) => ({
+  ...PROGRAMAS.filter((item) => !covered.has(item.id) && !inafamPrograms.some((program) => program.id === item.id)).map((item) => ({
     id: item.id, institutionId: item.instituto, title: item.nombre,
     shortTitle: item.nombre, abbreviation: item.nombre, category: item.tipo,
     description: item.descripcion || null, image: item.imagenUrl || null, modalImage: null,
@@ -37,6 +39,7 @@ export const programs = [
     programPdf: item.temarioUrl || null, source: "RAVSOJA · catálogo existente",
     salesVerified: false,
   })),
+  ...inafamPrograms,
   {
     id: "antares-community-manager", institutionId: "antares", title: "Community Manager",
     shortTitle: "Community Manager", abbreviation: "Community Manager", category: "Diplomado",
@@ -54,6 +57,7 @@ export const convocations = [
     calendarPdf: source.calendarPdf || null,
     calendarImage: source.calendarDownload || null,
   })),
+  ...inafamPrograms.map((program) => ({ id: program.id + "-" + program.startDate, programId: program.id, startDate: program.startDate, status: "publicada", calendar: inafamCalendars[program.id] || [], calendarPdf: null, calendarImage: null, calendarPending: !inafamCalendars[program.id] })),
   ...CONVOCATORIAS.map((source) => ({
     id: source.programaId + "-" + source.inicio,
     programId: source.programaId,
