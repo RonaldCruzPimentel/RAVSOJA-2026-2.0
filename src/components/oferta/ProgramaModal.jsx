@@ -234,7 +234,7 @@ export default function ProgramaModal({ program, onClose }) {
                 {curriculum.map((module) => (
                   <button type="button" className="rv-offer-curriculum__item" key={module.numero} onClick={() => setShowCurriculumNotice(true)}>
                     <span>{module.numero}</span>
-                    <div><small>MÓDULO</small><h4>{module.nombre}</h4></div>
+                    <div><small>{module.tipo === "materia" ? "MATERIA" : "MÓDULO"}</small><h4>{module.nombre}</h4></div>
                     <span className="rv-offer-curriculum__arrow" aria-hidden="true">
                       <ArrowUpRight size={16} />
                     </span>
